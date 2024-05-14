@@ -10,7 +10,7 @@ with col1:
              
 Dữ liệu về tỷ lệ thất nghiệp theo trình độ học vấn, kỹ năng cho ta biết trình độ và kỹ năng nào đang thiếu hụt và dư thừa trên thị 
          trường lao động. Nhờ vậy, các cơ sở giáo dục và đào tạo có thể điều chỉnh chương trình giảng dạy để đáp ứng nhu cầu của thị 
-         trường, giúp người lao động có được kỹ năng phù hợp để dễ dàng tìm kiếm việc làm.s""")
+         trường, giúp người lao động có được kỹ năng phù hợp để dễ dàng tìm kiếm việc làm.""")
 
 with col3:
     st.image("streamlit_report/pic/gif_conclusion.gif", use_column_width=True)
