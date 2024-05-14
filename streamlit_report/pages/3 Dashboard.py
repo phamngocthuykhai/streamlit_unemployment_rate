@@ -159,9 +159,11 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
              st.write("""* Nhóm tuổi từ 15 đến 24 tuổi: Đây thường là nhóm tuổi của các bạn trẻ mới tốt nghiệp trung học phổ thông hoặc 
                       đại học và đang tìm kiếm việc làm lần đầu trong cuộc sống. Tính trạng thất nghiệp cao ở nhóm này có thể phản 
                       ánh sự khó khăn trong việc nhập cuộc vào thị trường lao động, thiếu kinh nghiệm làm việc, cũng như sự cạnh tranh 
-                      gay gắt trong việc tìm kiếm việc làm phù hợp với trình độ và mong muốn của họ.\n\n * Nhóm tuổi từ 25 đến 49 tuổi: Đây là nhóm tuổi mà người lao động thường đạt đến đỉnh cao về sự nghiệp và kinh 
+                      gay gắt trong việc tìm kiếm việc làm phù hợp với trình độ và mong muốn của họ.
+* Nhóm tuổi từ 25 đến 49 tuổi: Đây là nhóm tuổi mà người lao động thường đạt đến đỉnh cao về sự nghiệp và kinh 
                       nghiệm làm việc. Tuy nhiên, mặc dù có kinh nghiệm làm việc, nhóm này vẫn có thể gặp khó khăn trong việc duy trì 
-                      việc làm do sự cạnh tranh từ các thế hệ trẻ tuổi, và các yếu tố kinh tế toàn cầu khác.\n\n * Nhóm tuổi 50+: Đây thường là nhóm tuổi của người lao động đã có nhiều kinh nghiệm làm việc nhưng có thể gặp 
+                      việc làm do sự cạnh tranh từ các thế hệ trẻ tuổi, và các yếu tố kinh tế toàn cầu khác.
+* Nhóm tuổi 50+: Đây thường là nhóm tuổi của người lao động đã có nhiều kinh nghiệm làm việc nhưng có thể gặp 
                       khó khăn trong việc tìm kiếm việc làm mới do sự phân biệt đối xử dựa trên tuổi tác, kỹ năng công nghệ thấp hoặc 
                       sự khó khăn trong việc thích nghi với sự biến đổi của thị trường lao động.""")
 
@@ -190,8 +192,10 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
     with st.expander("📝See note:"):
         st.write("""Tỷ suất sinh= ( Tổng số sinh trong thời kỳ nghiên cứu/ Dân số trung bình)*1000\n\n* Biểu đồ chỉ ra mối tương quan nghịch, nghĩa là khi tỷ lệ thất nghiệp của phụ nữ tăng thì tỷ lệ sinh sẽ giảm.
                   Điều này có thể là do một số yếu tố, chẳng hạn như sự bất an về kinh tế, có thể khiến các cặp vợ chồng trì hoãn 
-                 hoặc từ bỏ việc sinh con. Các vấn đề:\n\n    * **Bất an kinh tế:** Khi phụ nữ thất nghiệp, họ có thể cảm thấy kém an toàn hơn về mặt tài chính và có nhiều 
-                 khả năng trì hoãn hoặc từ bỏ việc sinh con.\n\n    * **Cân bằng giữa công việc và cuộc sống:** Cân bằng giữa công việc và cuộc sống gia đình có thể là một thách thức 
+                 hoặc từ bỏ việc sinh con. Các vấn đề:
+    * **Bất an kinh tế:** Khi phụ nữ thất nghiệp, họ có thể cảm thấy kém an toàn hơn về mặt tài chính và có nhiều 
+                 khả năng trì hoãn hoặc từ bỏ việc sinh con.
+    * **Cân bằng giữa công việc và cuộc sống:** Cân bằng giữa công việc và cuộc sống gia đình có thể là một thách thức 
                  và phụ nữ thất nghiệp có thể có nhiều thời gian hơn để chăm sóc con cái. Tuy nhiên, họ cũng có thể phải đối mặt với 
                  những thách thức trong việc tìm kiếm người chăm sóc trẻ khi tái gia nhập lực lượng lao động.\n\n  * **Khát vọng về học vấn và nghề nghiệp:** Phụ nữ có trình độ học vấn và nguyện vọng nghề nghiệp cao hơn 
                  có thể có nhiều khả năng trì hoãn việc sinh con cho đến khi họ đã ổn định được sự nghiệp của mình.""")
@@ -230,25 +234,31 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
     st.plotly_chart(fig)
 
     with st.expander("📝 See note:"):
-        st.write("""- **Vùng trung du và miền núi phía bắc:**\n\n            
+        st.write("""- **Vùng trung du và miền núi phía bắc:**           
     - Nông nghiệp vẫn là ngành kinh tế chủ lực: Tuy nhiên, năng suất lao động thấp, không đủ linh hoạt để tạo ra nhiều việc làm.
                   Do đó, khi các ngành công nghiệp này gặp khó khăn, tỷ lệ thất nghiệp sẽ dễ dàng tăng cao.\n\n- **Bắc Trung Bộ và Duyên hải Miền Trung:**\n\n
     - Vùng này phụ thuộc vào một số ngành công nghiệp nhất định, chẳng hạn như du lịch, nông nghiệp và khai thác khoáng sản. 
                  Tuy nhiên, những ngành này có thể không tạo đủ việc làm cho dân số ngày càng tăng. Các thiên tai này gây ra thiệt 
-                 hại kinh tế nghiêm trọng, làm giảm khả năng tạo ra việc làm.\n\n- **Đồng bằng sông Cửu Long:**\n\n    - Đồng bằng sông 
-                 Cửu Long nổi tiếng với nền nông nghiệp trù phú, đóng góp đáng kể vào sản xuất lương thực quốc gia. Với điều kiện 
+                 hại kinh tế nghiêm trọng, làm giảm khả năng tạo ra việc làm.
+- **Đồng bằng sông Cửu Long:**
+    - Đồng bằng sông Cửu Long nổi tiếng với nền nông nghiệp trù phú, đóng góp đáng kể vào sản xuất lương thực quốc gia. Với điều kiện
                  khí hậu thuận lợi, đất đai màu mỡ, khu vực này là nơi canh tác nhiều loại cây trồng. Tuy nhiên, nông nghiệp phụ thuộc 
                  nhiều vào điều kiện thời tiết và mùa màng. Vào những thời điểm ngoài mùa vụ, nhu cầu lao động giảm mạnh, dẫn đến tình 
-                 trạng mất việc làm.\n\n- **Vùng Đông Nam Bộ:**\n\n    - Đối với các thành phố phát triển như Thành phố Hồ Chí Minh, nơi tập trung đông dân và là trung tâm kinh tế lớn, thì việc đô thị 
-                 hóa thường dẫn đến sự cạnh tranh tìm việc làm rất cao giữa người lao động. Bởi khi đó, nhu cầu tìm việc tăng mạnh
-                  trong khi số lượng việc làm lại có sự hạn chế và phân bổ không đều, tạo nên sự chênh lệch lớn giữa các ngành nghề, 
-                 các khu vực. Điều này có thể dẫn đến tình trạng thừa lao động ở một số lĩnh vực và thiếu hụt lao động ở một số lĩnh 
-                 vực khác.\n\n- **Tây Nguyên:**\n\n    - Tây Nguyên chủ yếu dựa vào nông nghiệp, trong khi công nghiệp và dịch vụ vẫn chưa 
-                 phát triển mạnh. Nông nghiệp tập trung sử dụng nhiều lao động nhưng năng suất thấp, dẫn đến thu nhập không cao cho người dân. 
-                 Tình trạng này cũng góp phần làm tăng tỷ lệ thất nghiệp trong khu vực.\n\n- **Đồng bằng sông Hồng:**\n\n    - Vùng đồng bằng sông 
-                 Hồng có tỷ lệ thất nghiệp tương đối thấp, dao động quanh mốc trung bình so với các khu vực khác của Việt Nam. \n\n   - Trong 
-                 những tháng giãn cách vì đại dịch Covid-19, các ngành công nghiệp chính ít bị ảnh hưởng: Các ngành công nghiệp chế biến, sản xuất thường liên quan đến nhu cầu cơ 
-                 bản của người tiêu dùng, do đó ít bị ảnh hưởng bởi các biến động ngắn hạn như dịch bệnh.""")
+ trạng mất việc làm.
+- **Vùng Đông Nam Bộ:**
+    - Đối với các thành phố phát triển như Thành phố Hồ Chí Minh, nơi tập trung đông dân và là trung tâm kinh tế lớn, thì việc đô thị 
+hóa thường dẫn đến sự cạnh tranh tìm việc làm rất cao giữa người lao động. Bởi khi đó, nhu cầu tìm việc tăng mạnh trong khi số lượng 
+                 việc làm lại có sự hạn chế và phân bổ không đều, tạo nên sự chênh lệch lớn giữa các ngành nghề, các khu vực. 
+                 Điều này có thể dẫn đến tình trạng thừa lao động ở một số lĩnh vực và thiếu hụt lao động ở một số lĩnh 
+vực khác.
+- **Tây Nguyên:**
+    - Tây Nguyên chủ yếu dựa vào nông nghiệp, trong khi công nghiệp và dịch vụ vẫn chưa phát triển mạnh. Nông nghiệp tập trung sử 
+                 dụng nhiều lao động nhưng năng suất thấp, dẫn đến thu nhập không cao cho người dân. Tình trạng này cũng góp phần 
+                 làm tăng tỷ lệ thất nghiệp trong khu vực.
+- **Đồng bằng sông Hồng:**
+    - Vùng đồng bằng sông Hồng có tỷ lệ thất nghiệp tương đối thấp, dao động quanh mốc trung bình so với các khu vực khác của Việt Nam. 
+   - Trong những tháng giãn cách vì đại dịch Covid-19, các ngành công nghiệp chính ít bị ảnh hưởng: Các ngành công nghiệp chế biến, 
+                 sản xuất thường liên quan đến nhu cầu cơ bản của người tiêu dùng, do đó ít bị ảnh hưởng bởi các biến động ngắn hạn như dịch bệnh.""")
 
 
     # Tạo biểu đồ thanh theo dõi tỷ lệ nhập cư của theo năm 
@@ -275,11 +285,11 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
         st.write("""Biểu đồ cho thấy tình trạng xuất nhập cư có ảnh hưởng đáng kể đến tỷ lệ thất nghiệp vì một số lý do sau:\n
 1. **Tỷ lệ thất nghiệp giảm có thể dẫn đến tình trạng di cư giảm:** Khi người dân dễ dàng tìm được việc làm ở địa phương, 
                  họ ít có xu hướng di chuyển đến những nơi khác để tìm kiếm cơ hội việc làm tốt hơn. Điều này làm giảm áp lực 
-                 di cư và giữ cho nguồn lao động ổn định ở địa phương.\n
+                 di cư và giữ cho nguồn lao động ổn định ở địa phương.
 2. **Tỷ lệ xuất cư giảm cũng có thể ảnh hưởng đến tỷ lệ thất nghiệp:** Khi người dân ít di cư ra khỏi một địa phương, 
                  nguồn cung lao động ở đó sẽ tăng lên, dẫn đến tình trạng dư thừa lao động và có thể đẩy tỷ lệ thất nghiệp tăng lên. 
                  Điều này thường xảy ra khi một khu vực đối diện với tình trạng thất nghiệp cao và người dân không có nhiều cơ hội để tìm kiếm việc làm ở nơi khác.\n
-**Tỷ lệ xuất cư cao có thể được giải thích bởi các yếu tố sau:**\n
+**Tỷ lệ xuất cư cao có thể được giải thích bởi các yếu tố sau:**
 - **Thu nhập thấp:** Thu nhập bình quân đầu người ở Việt Nam vẫn thấp so với nhiều nước trong khu vực, khiến người dân tìm kiếm 
                  cơ hội việc làm và thu nhập cao hơn ở các nước có mức sống cao hơn.
 - **Thiếu việc làm:** Tỷ lệ thất nghiệp ở Việt Nam, đặc biệt là ở khu vực nông thôn, vẫn cao. Điều này khiến nhiều người tìm kiếm
@@ -337,8 +347,8 @@ if choice =="Tình trạng thiếu việc làm":
 
         with st.expander("📝See note:"):
             st.write("""- Nhóm tuổi trẻ (từ 15 đến 24 tuổi):
-    - Ít kinh nghiệm làm việc và kỹ năng chuyên môn còn hạn chế.\n\n     - Thị trường lao động có thể không dễ dàng tạo ra đủ cơ 
-                     hội việc làm phù hợp với nhu cầu và mong muốn của nhóm này, dẫn đến tỷ lệ thiếu việc làm cao.\n\n 
+    - Ít kinh nghiệm làm việc và kỹ năng chuyên môn còn hạn chế.
+    - Thị trường lao động có thể không dễ dàng tạo ra đủ cơ hội việc làm phù hợp với nhu cầu và mong muốn của nhóm này, dẫn đến tỷ lệ thiếu việc làm cao.\n\n 
 - Nhóm tuổi trung niên (từ 25 đến 49 tuổi):
     - Kinh nghiệm làm việc và kỹ năng chuyên môn phong phú hơn so với nhóm tuổi trẻ.
     - Có khả năng tìm kiếm và duy trì việc làm tốt hơn.
@@ -450,17 +460,18 @@ if choice =="Tình trạng thiếu việc làm":
         st.write("""* **Đồng bằng sông Hồng:** có tỷ lệ thiếu việc làm thấp nhất do nền kinh tế phát triển đa dạng, nhu cầu lao động cao trong 
                  các lĩnh vực công nghiệp và dịch vụ, và hệ thống giáo dục phát triển.  Nhu cầu lao động cao trong các lĩnh vực này đã tạo ra 
                  nhiều cơ hội việc làm cho người lao động. Hệ thống giáo dục phát triển cũng góp phần cung cấp nguồn nhân lực chất lượng cao đáp 
-                 ứng nhu cầu thị trường lao động.\n\n * **Đồng bằng sông Cửu Long:** có tỷ lệ thiếu việc làm cao nhất do kinh tế chủ yếu dựa vào 
-                 nông nghiệp, năng suất lao động thấp, ảnh hưởng của biến đổi khí hậu, hạn hán,  xâm nhập mặn,...\n\n* **Đông Nam Bộ:** có tỷ lệ 
-                 thiếu việc làm tương đối thấp do nền kinh tế phát triển mạnh mẽ. Nền  kinh tế khu vực này có tốc độ phát triển nhanh chóng, đặc 
+                 ứng nhu cầu thị trường lao động.
+* **Đồng bằng sông Cửu Long:** có tỷ lệ thiếu việc làm cao nhất do kinh tế chủ yếu dựa vào nông nghiệp, năng suất lao động thấp, ảnh hưởng của biến đổi khí hậu, hạn hán,  xâm nhập mặn,...
+* **Đông Nam Bộ:** có tỷ lệ thiếu việc làm tương đối thấp do nền kinh tế phát triển mạnh mẽ. Nền  kinh tế khu vực này có tốc độ phát triển nhanh chóng, đặc 
                  biệt là trong các ngành công nghiệp và dịch vụ. Nhờ thu hút  được nhiều nguồn vốn đầu tư trong và ngoài nước, khu vực này đã tạo 
-                 ra nhiều cơ hội việc làm cho người lao động.\n\n* **Tây Nguyên:** có tỷ lệ thiếu việc làm tương đối thấp nhưng trong năm 2021 có 
+                 ra nhiều cơ hội việc làm cho người lao động.
+* **Tây Nguyên:** có tỷ lệ thiếu việc làm tương đối thấp nhưng trong năm 2021 có 
                  tỷ lệ cao thứ 2 so với các vùng còn lại.  Nền kinh tế chủ yếu dựa vào nông nghiệp và lâm nghiệp, với năng suất lao động thấp do 
                  điều kiện tự nhiên khó khăn. Mùa vụ không đồng đều cũng dẫn đến tình trạng thiếu việc làm vào một số thời điểm trong năm. Bên cạnh 
-                 đó, khu vực này cũng chịu ảnhhưởng nặng nề bởi biến đổi khí hậu, hạn hán,...\n\n* **Bắc Trung Bộ và duyên hải miền Trung:** có tỷ 
-                 lệ thiếu việc làm ở mức trung bình do nền kinh tế phát triển đa dạng nhưng năng suất lao động nhìn chung vẫn thấp hơn so với các 
-                 khu vực khác. Thiên tai, bão lũ cũng là những yếu tố ảnh hưởng đến thị trường lao động ở khu vực này.\n\n* **Trung du và miền núi 
-                 phía Bắc:** có tỷ lệ thiếu việc làm ở mức trung bình do nền kinh tế chủ yếu dựa vào nông nghiệp và lâm nghiệp, năng suất lao động 
+                 đó, khu vực này cũng chịu ảnhhưởng nặng nề bởi biến đổi khí hậu, hạn hán,...
+* **Bắc Trung Bộ và duyên hải miền Trung:** có tỷ lệ thiếu việc làm ở mức trung bình do nền kinh tế phát triển đa dạng nhưng năng suất lao động 
+                 nhìn chung vẫn thấp hơn so với các khu vực khác. Thiên tai, bão lũ cũng là những yếu tố ảnh hưởng đến thị trường lao động ở khu vực này.
+* **Trung du và miền núi phía Bắc:** có tỷ lệ thiếu việc làm ở mức trung bình do nền kinh tế chủ yếu dựa vào nông nghiệp và lâm nghiệp, năng suất lao động 
                  thấp và mức độ phát triển kinh tế - xã hội thấp.""")
 
 
@@ -491,8 +502,8 @@ if choice =="Tình trạng thiếu việc làm":
     with st.expander("📝See note:"):
         st.write("""- **Tỷ suất nhập cư cao:** Nếu tỷ suất nhập cư tăng trong giai đoạn này, điều này có thể tạo ra một lượng lớn lao động 
                  mới nhập cư vào thị trường lao động. Điều này có thể tạo ra một áp lực tăng về cạnh tranh trong việc tìm kiếm việc làm, 
-                 đặc biệt là trong các ngành nghề nơi mà lao động nhập cư thường tìm kiếm việc làm.\n\n- **Tỷ suất xuất cư cao:** Nếu tỷ suất 
-                 xuất cư tăng, điều này có thể gây ra một số vấn đề cho tình trạng thiếu việc làm ở Việt Nam. Cụ thể,
+                 đặc biệt là trong các ngành nghề nơi mà lao động nhập cư thường tìm kiếm việc làm.
+- **Tỷ suất xuất cư cao:** Nếu tỷ suất xuất cư tăng, điều này có thể gây ra một số vấn đề cho tình trạng thiếu việc làm ở Việt Nam. Cụ thể,
                   người lao động Việt Nam rời bỏ nước để tìm kiếm cơ hội việc làm tốt hơn ở nước ngoài. Điều này có thể làm giảm áp lực 
                  đối với thị trường lao động nội địa, nhưng cũng có thể tạo ra một hiện tượng thiếu hụt lao động trong một số ngành 
                  nghề, đặc biệt là các ngành nghề đòi hỏi kỹ năng cao.""")
@@ -501,8 +512,8 @@ if choice =="Bản đồ":
     st.sidebar.image("streamlit_report/pic/gif_gunner.gif", use_column_width=True)
     st.title("🗺 Bản đồ thể hiện tình trạng thiếu việc làm theo địa phương")
     st.info("""Biểu đồ heatmap có thể thể hiện tỷ lệ thất nghiệp theo địa lý, cho phép nhìn nhận tỉnh trạng thất nghiệp/ thiếu việc làm ở các khu vực khác nhau 
-            trên bản đồ.\n\n Các màu sắc khác nhau có thể biểu thị mức độ của tỷ lệ thất nghiệp, giúp phát hiện ra các khu vực có mức độ thất 
-            nghiệp cao hơn so với các khu vực khác.""")
+            trên bản đồ.
+ Các màu sắc khác nhau có thể biểu thị mức độ của tỷ lệ thất nghiệp, giúp phát hiện ra các khu vực có mức độ thất nghiệp cao hơn so với các khu vực khác.""")
     
     #Tạo tab
     unemployment = 'Tình trạng thất nghiệp'
@@ -575,26 +586,26 @@ if choice =="Bản đồ":
                     folium_static(mymap, width=900, height=800)
 
                     with st.expander("📝See note:"):
-                        st.write("""**Trong 5 năm từ 2018 đến 2022, thành phố Đà Nẵng là tỉnh, thành phố có tỷ lệ thất nghiệp cao nhất.**\n\n**- Đà Nẵng** là
-                                  một trong những điểm du lịch hàng đầu của Việt Nam. Đại dịch COVID-19 đã gây ra sự suy giảm mạnh mẽ trong lưu lượng 
+                        st.write("""**Trong 5 năm từ 2018 đến 2022, thành phố Đà Nẵng là tỉnh, thành phố có tỷ lệ thất nghiệp cao nhất.**
+**- Đà Nẵng** là một trong những điểm du lịch hàng đầu của Việt Nam. Đại dịch COVID-19 đã gây ra sự suy giảm mạnh mẽ trong lưu lượng 
                                 khách du lịch tới Đà Nẵng. Sự sụt giảm này đã tác động mạnh đến các ngành liên quan đến du lịch dẫn đến việc 
-                                giảm số lượng việc làm trong những ngành này.\n\n **- Tỉnh Lạng Sơn** là một tỉnh miền núi nằm ở phía Bắc Việt Nam, với điều 
-                                 kiện kinh tế còn nhiều khó khăn. Ngành công nghiệp và dịch vụ tại đây phát triển chậm do thiếu đầu tư và đào tạo nghề. 
-                                 Do đó, chất lượng lao động vẫn chưa cao, lực lượng lao động có xu hướng tăng trưởng chậm với trình độ thấp, 
-                                 dẫn đến tỷ lệ thất nghiệp cao.\n\n **-Thành phố Hồ Chí Minh** là trung tâm kinh tế, thương mại và tài chính lớn nhất cả nước, 
-                                 với tốc độ tăng trưởng kinh tế luôn ở mức cao. Các ngành công nghiệp, dịch vụ và xây dựng tại đây luôn có nhu cầu lao động 
-                                 lớn với số lượng lớn. Bên cạnh đó,  **Thành phố Hồ Chí Minh** là thành phố đông dân nhất Việt Nam, với dân số hơn 9 triệu người. 
-                                 Mỗi năm, có hàng trăm nghìn người từ các tỉnh thành khác đến thành phố này lập nghiệp, vì thế nguồn cung lao động tại đây ngày 
-                                 càng tăng nhanh. Tuy nguồn lao động tại thành phố luôn dồi dào, nhưng trình độ tay nghề và kỹ năng chuyên môn của nhiều lao động 
-                                 vẫn còn hạn chế, không đáp ứng được yêu cầu của thị trường lao động. Điều này dẫn đến tình trạng thất nghiệp ngày càng cao tại 
-                                 thành phố này.\n\n **-** Vùng tập trung các tỉnh thành phố có màu đậm hơn tập trung ở vùng **Đồng Bằng Sông Cửu 
-                                 Long**. **Đồng Bằng Sông Cửu Long** 
-                                là một trong những vùng lớn nhất về nông nghiệp và ngư nghiệp tại Việt Nam. Tuy nhiên, các ngành này 
-                                thường phụ thuộc nhiều vào yếu tố thiên nhiên và có thể gặp phải các vấn đề như thiếu nước, sạt lở đất, 
-                                và sự biến động của thị trường. Điều này dẫn đến sự không ổn định của nguồn thu nhập và đời sống của người
-                                dân trong vùng. Bên cạnh đó, Đồng Bằng Sông Cửu Long có dân số đông đúc, đặc biệt là ở các tỉnh và thành phố lớn như **Cần Thơ** và các tỉnh 
-                                **Đồng Tháp, An Giang**. Sự tập trung dân số có thể tạo ra áp lực lớn đối với cơ sở hạ tầng và thị trường 
-                                lao động.""")
+                                giảm số lượng việc làm trong những ngành này.
+**- Tỉnh Lạng Sơn** là một tỉnh miền núi nằm ở phía Bắc Việt Nam, với điều kiện kinh tế còn nhiều khó khăn. Ngành công nghiệp và dịch vụ tại đây
+                                  phát triển chậm do thiếu đầu tư và đào tạo nghề. Do đó, chất lượng lao động vẫn chưa cao, lực lượng lao động 
+                                 có xu hướng tăng trưởng chậm với trình độ thấp, dẫn đến tỷ lệ thất nghiệp cao.
+**-Thành phố Hồ Chí Minh** là trung tâm kinh tế, thương mại và tài chính lớn nhất cả nước,  với tốc độ tăng trưởng kinh tế luôn ở mức cao. Các 
+                                 ngành công nghiệp, dịch vụ và xây dựng tại đây luôn có nhu cầu lao động lớn với số lượng lớn. Bên cạnh đó,  
+                                 **Thành phố Hồ Chí Minh** là thành phố đông dân nhất Việt Nam, với dân số hơn 9 triệu người.  Mỗi năm, có hàng 
+                                 trăm nghìn người từ các tỉnh thành khác đến thành phố này lập nghiệp, vì thế nguồn cung lao động tại đây ngày 
+                                 càng tăng nhanh. Tuy nguồn lao động tại thành phố luôn dồi dào, nhưng trình độ tay nghề và kỹ năng chuyên môn 
+                                 của nhiều lao động vẫn còn hạn chế, không đáp ứng được yêu cầu của thị trường lao động. Điều này dẫn đến tình 
+                                 trạng thất nghiệp ngày càng cao tại thành phố này.
+**-** Vùng tập trung các tỉnh thành phố có màu đậm hơn tập trung ở vùng **Đồng Bằng Sông Cửu Long**. **Đồng Bằng Sông Cửu Long** là một trong 
+                                 những vùng lớn nhất về nông nghiệp và ngư nghiệp tại Việt Nam. Tuy nhiên, các ngành này thường phụ thuộc nhiều 
+                                 vào yếu tố thiên nhiên và có thể gặp phải các vấn đề như thiếu nước, sạt lở đất và sự biến động của thị trường. 
+                                 Điều này dẫn đến sự không ổn định của nguồn thu nhập và đời sống của người dân trong vùng. Bên cạnh đó, Đồng Bằng 
+                                 Sông Cửu Long có dân số đông đúc, đặc biệt là ở các tỉnh và thành phố lớn như **Cần Thơ** và các tỉnh **Đồng Tháp,
+                                  An Giang**. Sự tập trung dân số có thể tạo ra áp lực lớn đối với cơ sở hạ tầng và thị trường lao động.""")
 
                 if choice=="Thành thị":
                     combined_un_province_df['avg_tt'] = combined_un_province_df[['TT_2018','TT_2019', 'TT_2020', 'TT_2021', 'TT_2022']].mean(axis=1)
@@ -753,17 +764,18 @@ if choice =="Bản đồ":
                         st.write("""**Đắk Lắk** là một trong những tỉnh có nền kinh tế nông nghiệp phát triển, nhưng ngành này thường gặp phải 
                                  những thách thức như sự thiếu hụt vốn đầu tư, công nghệ lạc hậu và khí hậu không ổn định. Ngoài ra, sự chuyển 
                                  dịch từ nông nghiệp sang công nghiệp thường chậm trễ, dẫn đến sự phụ thuộc lớn vào lao động nông thôn và một 
-                                 tỷ lệ thất nghiệp cao.\n\n   **Đồng Bằng sônng Cửu Long** là một trong những vùng đất có mật độ 
+                                 tỷ lệ thất nghiệp cao.
+* **Đồng Bằng sônng Cửu Long** là một trong những vùng đất có mật độ 
                                  dân số cao nhất ở Việt Nam. Sự gia tăng dân số, đặc biệt là ở các thành phố và thị trấn lớn, có thể tạo ra áp lực 
                                  lớn cho thị trường lao động và gây ra tình trạng thiếu việc làm. **Đồng Bằng sông Cửu Long** chủ yếu làm việc trong 
                                  ngành nông nghiệp, nhưng sự phát triển của ngành công nghiệp và dịch vụ ở khu vực này không đồng đều,gây ra sự 
-                                 không ổn định trong nền kinh tế và việc làm.\n\n   Trong đó có 2 tỉnh/thành phố có tỷ lệ thất nghiệp cao nhất nước, đó 
-                                 là:\n\n **Vĩnh Long** là một tỉnh nằm trong khu vực Đồng bằng sông 
-                                 Cửu Long, nền kinh tế chủ yếu là nông nghiệp và các ngành công nghiệp như chế biến thực phẩm, dệt may và xây 
-                                 dựng. Nếu có sự suy giảm trong các ngành này hoặc nhu cầu lao động không đủ để đáp ứng, tỷ lệ thiếu việc làm 
-                                 có thể tăng lên.\n\n**Rạch Giá** chủ yếu phụ thuộc vào một số ngành nghề cụ thể như nông nghiệp hoặc ngư 
-                                 nghiệp, thì khi có biến động trong các ngành này (như thời tiết xấu, giảm sản lượng, hoặc vấn đề môi trường), 
-                                 có thể dẫn đến tăng tỷ lệ thiếu việc làm.""")
+                                 không ổn định trong nền kinh tế và việc làm.
+    Trong đó có 2 tỉnh/thành phố có tỷ lệ thất nghiệp cao nhất nước, đó là:
+    * **Vĩnh Long** là một tỉnh nằm trong khu vực Đồng bằng sông Cửu Long, nền kinh tế chủ yếu là nông nghiệp và các ngành công nghiệp như chế biến 
+                                 thực phẩm, dệt may và xây dựng. Nếu có sự suy giảm trong các ngành này hoặc nhu cầu lao động không đủ để đáp ứng, 
+                                 tỷ lệ thiếu việc làm có thể tăng lên.
+    * **Rạch Giá** chủ yếu phụ thuộc vào một số ngành nghề cụ thể như nông nghiệp hoặc ngư nghiệp, thì khi có biến động trong các ngành này (như 
+                                 thời tiết xấu, giảm sản lượng, hoặc vấn đề môi trường), có thể dẫn đến tăng tỷ lệ thiếu việc làm.""")
 
                 if choice=="Thành thị":
                     combined_under_province_df['avg_tt'] = combined_under_province_df[['TT_2018','TT_2019', 'TT_2020', 'TT_2021', 'TT_2022']].mean(axis=1)
