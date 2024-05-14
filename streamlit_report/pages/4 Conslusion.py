@@ -1,7 +1,6 @@
 import streamlit as st
 st.set_page_config(page_title='Conclusions',page_icon=":💡:",layout='wide')
 st.title("Kết luận 📑💡")
-
 col1,col2=st.columns([2,1])
 with col1:
     st.write("""Hiểu rõ hơn về thị trường lao động: Dữ liệu về tỷ lệ thất nghiệp theo từng ngành nghề, khu vực, nhóm tuổi, giới tính,... cho ta biết 
