@@ -3,7 +3,7 @@ import pandas as pd
 from ydata_profiling import ProfileReport
 from streamlit_pandas_profiling import st_profile_report
 from streamlit_plotly_events import plotly_events
-
+st.set_page_config(page_title='Dataset',page_icon=":📂:",layout='wide')
 st.title("**📁 Mô tả dữ liệu**")
 region_df= pd.read_csv('streamlit_report/data_csv/Region.csv')
 age_df= pd.read_csv('streamlit_report/data_csv/Age.csv')

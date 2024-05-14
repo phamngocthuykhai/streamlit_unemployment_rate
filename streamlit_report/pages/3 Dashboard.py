@@ -6,7 +6,7 @@ import folium
 from folium.plugins import HeatMap
 from streamlit_folium import folium_static
 import hydralit_components as hc
-
+st.set_page_config(page_title='Dashboard',page_icon=":📊:",layout='wide')
 # Data Source
 region_df= pd.read_csv('streamlit_report/data_csv/Region.csv')
 age_df= pd.read_csv('streamlit_report/data_csv/Age.csv')
