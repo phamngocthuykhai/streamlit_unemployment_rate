@@ -39,8 +39,8 @@ with st.sidebar:
 
 if choice =="Xu hướng":
     st.sidebar.image("streamlit_report/pic/200-unscreen.gif", use_column_width=True)
-    st.title("**📊Dashboard xu hướng tình trạng thất nghiệp và thiếu việc làm tại Việt Nam(2018-2022)**")
-    st.info("""Dashboard xu hướng tình trạng thất nghiệp và thiếu việc làm cung cấp cái nhìn tổng quan về thị trường lao động
+    st.title("**📊Dashboard biến động tình trạng thất nghiệp và thiếu việc làm tại Việt Nam(2018-2022)**")
+    st.info("""Dashboard xu hướng biến động tình trạng thất nghiệp và thiếu việc làm cung cấp cái nhìn tổng quan về thị trường lao động
                 trong giai đoạn 2018-2022""")
     col1,col2=st.columns([2.,1])
     with col1:
@@ -57,7 +57,7 @@ if choice =="Xu hướng":
         trace_underemployed = go.Scatter(x=years, y=list(underemployed.values()), mode='lines', name='Tỷ lệ thiếu việc làm')
         # Tạo layout
         layout = go.Layout(
-            title='Xu hướng tình trạng thất nghiệp và thiếu việc làm (2018-2022)',
+            title='Biến động tình trạng thất nghiệp và thiếu việc làm (2018-2022)',
             xaxis=dict(title='Năm', range=[2018, 2022]),
             yaxis=dict(title='Tỷ lệ (%)'))
         
@@ -65,13 +65,16 @@ if choice =="Xu hướng":
         fig.update_layout(width=770, height=500)
         st.plotly_chart(fig)
         with st.expander('📝 See note:'):
-            st.write("""Biểu đồ cho thấy rằng tỷ lệ thất nghiệp và thiếu việc làm tại Việt Nam đã tăng mạnh trong những năm 2020-2021.
-    * 2020-2021: Đại dịch COVID-19 gây ra gián đoạn kinh tế nghiêm trọng, dẫn đến nhiều doanh nghiệp đóng cửa, thu hẹp hoạt động, và cắt giảm nhân sự. 
-                    Điều này dẫn đến gia tăng tỷ lệ thất nghiệp và thiếu việc làm trong nhiều ngành nghề.
-    * Năm 2022: Mặc dù tỷ lệ thất nghiệp và thiếu việc làm vẫn cao hơn so với năm 2018 và 2019, nhưng có một dấu hiệu giảm trong năm 2022. 
-                    Điều này có thể cho thấy sự phục hồi sau đại dịch và các biện pháp khôi phục kinh tế đã bắt đầu có hiệu quả, dẫn đến 
-                    việc giảm bớt áp lực trên thị trường lao động.Sự sụt giảm vào năm 2022 cho thấy sự phục hồi dần dần, nhưng tỷ lệ vẫn 
-                    cao do những ảnh hưởng dai dẳng của đại dịch và những thách thức kinh tế đang diễn ra.""")
+            st.write("""Biểu đồ cho thấy rằng tỷ lệ thất nghiệp và thiếu việc làm tại Việt Nam đã tăng mạnh trong những năm này. Điều này
+                      có thể được giải thích bởi ảnh hưởng của đại dịch COVID-19, khi nền kinh tế gặp khó khăn và nhiều ngành công nghiệp 
+                     phải đối mặt với sự suy giảm sản xuất và thu nhập.
+* Năm 2020-2021 là một năm bị ảnh hưởng nặng nề bởi đại dịch COVID-19, khiến nền kinh tế bị gián đoạn nghiêm trọng và buộc nhiều doanh nghiệp
+                      phải thu hẹp quy mô hoặc tạm thời đóng cửa. Nhiều người lao động không bị mất việc hoàn toàn mà phải chấp nhận giảm giờ 
+                     làm hoặc chuyển sang làm việc bán thời gian, khiến tình trạng thiếu việc làm gia tăng.
+* Mặc dù tỷ lệ thất nghiệp và thiếu việc làm vẫn cao hơn năm 2018 và 2019, nhưng sẽ có một số mức giảm vào năm 2022. Điều này có thể cho thấy
+                      các biện pháp phục hồi sau đại dịch và kích thích kinh tế đang bắt đầu phát huy tác dụng, dẫn đến ít áp lực lên thị 
+                     trường lao động. Sự sụt giảm nhẹ vào năm 2022 cho thấy sự phục hồi dần dần, nhưng con số vẫn ở mức cao do ảnh hưởng kéo 
+                     dài của đại dịch và các vấn đề tài chính đang diễn ra.""")
   
 
 if choice =="Tình trạng thất nghiệp":
@@ -107,26 +110,28 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
         # giới tính ảnh hưởng đến tình trạng thất nghiệp
         fig = px.line(gender_df, x='Năm', y='Tỷ lệ thất nghiệp', color='Giới tính', labels={'Năm': 'Năm', 'Tỷ lệ thất nghiệp': 'Tỷ lệ'})
         
-        fig.update_layout(title='Tình trạng thất nghiệp ảnh hưởng bởi giới tính (2018-2022)')
+        fig.update_layout(title='Tình trạng thất nghiệp phân theo giới tính (2018-2022)')
         fig.update_xaxes(title='Năm')
         fig.update_yaxes(title='Tỷ lệ (%)')
-        fig.update_layout(width=600, height=500)
+        fig.update_layout(width=500, height=500)
         
         # Hiển thị biểu đồ trên Streamlit
         st.plotly_chart(fig)
         with st.expander("📝See note:"):
-            st.write("""* Nữ giới thường phải đảm nhận trách nhiệm chăm sóc gia đình và con cái,
-                      điều này có thể ảnh hưởng đến khả năng của họ trong việc tham gia vào lực lượng lao động hoặc 
-                     tiếp cận các công việc có tính chất nặng nhọc và yêu cầu thời gian cao. Phụ nữ thường tập trung
-                      vào các ngành nghề có tính chất phụ trợ hoặc dịch vụ, những ngành này thường có mức lương thấp
-                      và ít cơ hội thăng tiến hơn so với những ngành nghề mà nam giới thường chiếm ưu thế.""")
+            st.write("""Đối với biểu đồ **“Tình trạng thất nghiệp phân theo giới tính”**, ta nhìn thấy được một số phụ nữ vẫn gặp phải sự phân 
+                     biệt đối xử trong nơi làm việc, bao gồm mức lương thấp hơn, cơ hội nghề nghiệp hạn chế và áp lực tăng cao. Sự phân biệt
+                      đối xử này có thể làm tăng tỷ lệ thất nghiệp ở phụ nữ. Nhiều phụ nữ phải đối mặt với áp lực giữa việc chăm sóc gia đình
+                      và làm việc ngoài xã hội. Điều này có thể làm giảm khả năng của họ trong việc tìm kiếm và duy trì một công việc, dẫn
+                      đến tỷ lệ thất nghiệp cao hơn. Tuy nhiên việc tỷ lệ thất nghiệp ở nữ giới giảm vào năm 2022 tuy không dáng kể nhưng có
+                      phần thấp hơn nam giới có thể phản ánh sự hồi phục của một số ngành nghề và sự cân nhắc của chính sách trong việc hỗ 
+                     trợ người lao động, bao gồm cả phụ nữ, sau đại dịch COVID-19.""")
 
     left_column, right_column = st.columns(2)
     with left_column:
         #Trình độ học vấn ảnh hưởng đến tình trạng thất nghiệp
         fig = px.line(academic_df, x='Năm', y='Tỷ lệ thất nghiệp', color='Học vấn', labels={'Năm': 'Năm', 'Tỷ lệ thất nghiệp': 'Tỷ lệ'})
         
-        fig.update_layout(title='Tình trạng thất nghiệp ảnh hưởng từ trình độ học vấn (2018-2022)')
+        fig.update_layout(title='Tình trạng thất nghiệp phân theo trình độ học vấn (2018-2022)')
         fig.update_xaxes(title='Năm')
         fig.update_yaxes(title='Tỷ lệ (%)')
         fig.update_layout(width=600, height=500)
@@ -148,7 +153,7 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
     with right_column:
         fig = px.line(age_df, x='Năm', y='Tỷ lệ thất nghiệp', color='Nhóm tuổi', labels={'Năm': 'Năm', 'Tỷ lệ thất nghiệp': 'Tỷ lệ'})
         
-        fig.update_layout(title='Tình trạng thất nghiệp ảnh hưởng bởi nhóm tuổi (2018-2022)')
+        fig.update_layout(title='Tình trạng thất nghiệp phân theo nhóm tuổi (2018-2022)')
         fig.update_xaxes(title='Năm')
         fig.update_yaxes(title='Tỷ lệ (%)')
         fig.update_layout(width=500, height=500)
@@ -273,7 +278,7 @@ vực khác.
     # Tạo layout
     layout = go.Layout(title='Tình trạng xuất nhập cư gây ảnh hưởng đến tình trạng thất nghiệp của các năm từ 2018 đến 2022',
                     xaxis=dict(title='Năm'),
-                    yaxis=dict(title='Tỷ lệ'))
+                    yaxis=dict(title='Tỷ lệ (%)'))
     # Combine
     fig = go.Figure(data=[trace_combined_region,trace_dt_immigration,trace_dt_migration], layout=layout)
     fig.update_layout(width=1000, height=600)
@@ -323,21 +328,21 @@ if choice =="Tình trạng thiếu việc làm":
     st.plotly_chart(fig)
 
     with st.expander("📝See note:"):
-        st.write("""Học vấn có ảnh hưởng lớn hơn so với ngành nghề, độ tuổi và giới tính: đối với trình độ **học vấn** 
-                 chiếm tỷ lệ cao nhất **(31,2%)**, cho thấy sự quan trọng của trình độ học vấn trong việc tìm kiếm và duy trì công việc.
-                  Trong khi đó, **ngành nghề** và **giới tính** có tỷ lệ ảnh hưởng lớn hơn so với giới tính **(25,9% so với 16,3%)**.
-                  Điều này có thể thấy rằng sự lựa chọn ngành nghề và giới tính cũng có vai trò quan trọng trong việc xác định khả năng 
-                 tìm kiếm việc làm và ổn định nghề nghiệp của một người. Mặc dù tỷ lệ ảnh hưởng của **tuổi** không phải là thấp nhất 
-                 **(26,5%)**, nhưng nó vẫn thấp hơn so với học vấn và ngành nghề. Điều này có thể cho thấy rằng trong một số trường hợp,
-                  người lao động có thể vượt qua sự ảnh hưởng của tuổi tác thông qua việc có trình độ học vấn cao và lựa chọn ngành nghề 
-                 phù hợp. Tỷ lệ ảnh hưởng của các yếu tố như học vấn, ngành nghề, giới tính và tuổi tác thể hiện sự phức tạp và đa dạng 
-                 của các nguyên nhân gây ra tình trạng thất nghiệp và thiếu việc làm.""")
+        st.write("""Biểu đồ hình tròn thể hiện tỷ lệ phần trăm các yếu tố ảnh hưởng đến tỷ lệ thiếu vệc làm tại Việt Nam. Trình độ học vấn có
+                  ảnh hưởng lớn hơn so với ngành nghề, độ tuổi và giới tính: đối với trình độ học vấn chiếm tỷ lệ cao nhất **(31,2%)**, cho thấy
+                  sự quan trọng của trình độ học vấn trong việc tìm kiếm và duy trì công việc. Trong khi đó, ngành nghề và giới tính có tỷ lệ 
+                 ảnh hưởng lớn hơn so với giới tính **(25,9% so với 16,3%)**. Điều này có thể thấy rằng sự lựa chọn ngành nghề và giới tính cũng 
+                 có vai trò quan trọng trong việc xác định khả năng tìm kiếm việc làm và ổn định nghề nghiệp của một người. Mặc dù tỷ lệ ảnh 
+                 hưởng của tuổi không phải là thấp nhất **(26,5%)**, nhưng nó vẫn thấp hơn so với học vấn và ngành nghề. Điều này có thể cho thấy 
+                 rằng trong một số trường hợp, người lao động có thể vượt qua sự ảnh hưởng của tuổi tác thông qua việc có trình độ học vấn 
+                 cao và lựa chọn ngành nghề phù hợp. Tỷ lệ ảnh hưởng của các yếu tố như học vấn, ngành nghề, giới tính và tuổi tác thể hiện 
+                 sự phức tạp và đa dạng của các nguyên nhân gây ra tình trạng thất nghiệp và thiếu việc làm.""")
         
     left_column, right_column = st.columns(2)
     with left_column:
         fig = px.line(age_df, x='Năm', y='Tỷ lệ thiếu việc làm', color='Nhóm tuổi', labels={'Năm': 'Năm', 'Tỷ lệ thiếu việc làm': 'Tỷ lệ'})
         # Đặt tên tiêu để và nhãn
-        fig.update_layout(title='Tình trạng thiếu việc làm ảnh hưởng từ nhóm tuổi(2018-2022)')
+        fig.update_layout(title='Tình trạng thiếu việc làm phân theo nhóm tuổi (2018-2022)')
         fig.update_xaxes(title='Năm')
         fig.update_yaxes(title='Tỷ lệ (%)')
         fig.update_layout(width=500, height=500)
@@ -346,24 +351,28 @@ if choice =="Tình trạng thiếu việc làm":
         st.plotly_chart(fig)
 
         with st.expander("📝See note:"):
-            st.write("""- Nhóm tuổi trẻ (từ 15 đến 24 tuổi):
-    - Ít kinh nghiệm làm việc và kỹ năng chuyên môn còn hạn chế.
-    - Thị trường lao động có thể không dễ dàng tạo ra đủ cơ hội việc làm phù hợp với nhu cầu và mong muốn của nhóm này, dẫn đến tỷ lệ thiếu việc làm cao.\n\n 
-- Nhóm tuổi trung niên (từ 25 đến 49 tuổi):
-    - Kinh nghiệm làm việc và kỹ năng chuyên môn phong phú hơn so với nhóm tuổi trẻ.
-    - Có khả năng tìm kiếm và duy trì việc làm tốt hơn.
-    - Tuy nhiên, có thể gặp khó khăn trong việc thích ứng với các biến động của thị trường lao động, đặc biệt là trong thời kỳ bùng nổ công nghệ.
-    - Gánh nặng gia đình như con cái, cha mẹ già yếu có thể ảnh hưởng đến khả năng tham gia thị trường lao động.
-- Nhóm tuổi cao (trên 50 tuổi):
-    - Gặp khó khăn trong việc tìm kiếm việc làm mới do các yếu tố như sự phân biệt đối xử dựa trên tuổi tác và khả năng thích ứng với công nghệ mới.
-    - Tuy nhiên, một số người trong nhóm này có thể đã có sự tích luỹ kinh nghiệm và mạng lưới liên kết trong nghề nghiệp, giúp họ duy trì việc làm ổn định hơn.
-    - Chính sách nghỉ hưu sớm ở một số quốc gia có thể ảnh hưởng đến tỷ lệ thiếu việc làm của nhóm tuổi này.""")
+            st.write("""Tuổi tác được coi là một yếu tố quan trọng ảnh hưởng đến tỷ lệ thiếu việc làm vì nó ảnh hưởng đến nhiều khía cạnh 
+                     khác nhau của khả năng tiếp cận việc làm và khả năng thích ứng với biến động của thị trường lao động. 
+* **Nhóm tuổi trẻ (từ 15 đến 24 tuổi):**\n\n  Đây thường là nhóm tuổi của các bạn trẻ mới tốt nghiệp trung học phổ thông hoặc đại học và đang
+                      tìm kiếm việc làm lần đầu trong cuộc sống. Tính trạng thất nghiệp cao ở nhóm này có thể phản ánh sự khó khăn trong việc
+                      nhập cuộc vào thị trường lao động, thiếu kinh nghiệm làm việc, cũng như sự cạnh tranh gay gắt trong việc tìm kiếm việc 
+                     làm phù hợp với trình độ và mong muốn của họ.
+* **Nhóm tuổi trung niên (từ 25 đến 49 tuổi):**\n\n     Nhóm này thường có kinh nghiệm làm việc và kỹ năng chuyên môn phong phú hơn so với 
+                     nhóm tuổi trẻ, giúp họ có khả năng tìm kiếm và duy trì việc làm tốt hơn. Tuy nhiên, họ có thể gặp khó khăn trong việc 
+                     thích ứng với các biến động của thị trường lao động, đặc biệt là trong thời kỳ bùng nổ công nghệ, khi mà các kỹ năng mới 
+                     và sự linh hoạt trở nên quan trọng. Ngoài ra, gánh nặng gia đình như con cái hoặc cha mẹ già yếu cũng có thể ảnh hưởng 
+                     đến khả năng tham gia thị trường lao động của họ, làm giảm sự linh hoạt và khả năng đáp ứng các yêu cầu công việc.
+* **Nhóm tuổi cao (trên 50 tuổi):**\n\n     Nhóm lao động lớn tuổi thường gặp khó khăn trong việc tìm kiếm việc làm mới do các yếu tố như sự
+                      phân biệt đối xử dựa trên tuổi tác và khả năng thích ứng với công nghệ mới. Tuy nhiên, một số người trong nhóm này đã 
+                     tích lũy được nhiều kinh nghiệm và xây dựng được mạng lưới liên kết trong nghề nghiệp, giúp họ duy trì việc làm ổn định
+                      hơn. Ngoài ra, chính sách nghỉ hưu sớm ở một số quốc gia cũng có thể ảnh hưởng đến tỷ lệ thiếu việc làm của nhóm tuổi 
+                     này, khi nhiều người lựa chọn hoặc bị khuyến khích nghỉ hưu trước tuổi lao động chính thức.""")
 
 
     with right_column:
         fig = px.line(academic_df, x='Năm', y='Tỷ lệ thiếu việc làm', color='Học vấn', labels={'Năm': 'Năm', 'Tỷ lệ thiếu việc làm': 'Tỷ lệ'})
         # Đặt tên tiêu để và nhãn
-        fig.update_layout(title='Tình trạng thiếu việc làm ảnh hưởng từ trình độ học vấn(2018-2022)')
+        fig.update_layout(title='Tình trạng thiếu việc làm phân theo trình độ học vấn(2018-2022)')
         fig.update_xaxes(title='Năm')
         fig.update_yaxes(title='Tỷ lệ (%)')
         fig.update_layout(width=600, height=500)
@@ -372,14 +381,17 @@ if choice =="Tình trạng thiếu việc làm":
         st.plotly_chart(fig)
 
         with st.expander("📝See note:"):
-            st.write("""- Nhóm có trình độ học vấn sơ cấp và không có trình độ chuyên môn kỹ thuật:
-    -   Tỷ lệ thiếu việc làm cao do thiếu hụt kỹ năng và kiến thức chuyên môn.
-    -   Nhu cầu lao động trong các ngành nghề truyền thống thường thấp và mức lương thấp.
-    -   Khả năng cạnh tranh trong thị trường lao động hạn chế.
-- Nhóm có trình độ học vấn cao đẳng hoặc đại học:
-    -   Tỷ lệ thiếu việc làm thấp hơn do có kỹ năng và kiến thức chuyên môn tốt hơn.
-    -   Có nhiều cơ hội nghề nghiệp và mạng lưới quan hệ rộng rãi.
-    -   Khả năng thích ứng với các biến động của thị trường lao động cao hơn.""")  
+            st.write("""Ngược lại với tình trạng thất nghiệp, tình trạng thiếu việc làm ở nhóm người có trình độ học vấn sơ cấp và không có 
+                     trình độ chuyên môn kỹ thuật cao nhất. 
+* Nhóm có trình độ học vấn sơ cấp và không có trình độ chuyên môn kỹ thuật có tỷ lệ thiếu việc làm cao xuất phát từ việc thiếu hụt kỹ năng 
+                     và kiến thức chuyên môn, khiến họ khó tìm kiếm được việc làm ổn định và phù hợp. Các ngành nghề truyền thống mà nhóm này 
+                     thường tham gia thường có nhu cầu lao động thấp và mức lương không cao, dẫn đến việc họ gặp khó khăn trong việc tìm kiếm 
+                     công việc có thu nhập tốt. Khả năng cạnh tranh của nhóm này trong thị trường lao động cũng hạn chế, do đó họ dễ bị rơi 
+                     vào tình trạng thiếu việc làm khi nền kinh tế gặp biến động. 
+* Nhóm có trình độ học vấn cao đẳng hoặc đại học nhờ có kỹ năng và kiến thức chuyên môn tốt hơn, tỷ lệ thiếu việc làm của nhóm này thấp hơn 
+                     so với nhóm có trình độ sơ cấp. Họ có nhiều cơ hội nghề nghiệp hơn và sở hữu mạng lưới quan hệ rộng rãi, giúp  tiếp cận 
+                     với nhiều vị trí công việc đa dạng và ổn định. Khả năng thích ứng với các biến động của thị trường lao động cũng cao hơn,
+                      cho phép dễ dàng chuyển đổi hoặc thăng tiến trong sự nghiệp khi có thay đổi trong nền kinh tế.""")  
       
 
 
@@ -389,7 +401,7 @@ if choice =="Tình trạng thiếu việc làm":
         
         fig = px.line(gender_df, x='Năm', y='Tỷ lệ thiếu việc làm', color='Giới tính', labels={'Năm': 'Năm', 'Tỷ lệ thiếu việc làm': 'Tỷ lệ'})
         # Đặt tên tiêu để và nhãn
-        fig.update_layout(title='Tình trạng thiếu việc làm ảnh hưởng từ giới tính(2018-2022)')
+        fig.update_layout(title='Tình trạng thiếu việc làm phân theo giới tính(2018-2022)')
         fig.update_xaxes(title='Năm')
         fig.update_yaxes(title='Tỷ lệ (%)')
         fig.update_layout(width=500, height=500)
@@ -406,7 +418,7 @@ if choice =="Tình trạng thiếu việc làm":
     with right_column:
         fig = px.line(career_df, x='Năm', y='Tỷ lệ thiếu việc làm', color='Ngành', labels={'Năm': 'Năm', 'Tỷ lệ thiếu việc làm': 'Tỷ lệ'})
         # Đặt tên tiêu để và nhãn
-        fig.update_layout(title='Tình trạng thiếu việc làm ảnh hưởng của các nhóm nghành(2018-2022)')
+        fig.update_layout(title='Tình trạng thiếu việc làm phân theo nhóm nghành(2018-2022)')
         fig.update_xaxes(title='Năm')
         fig.update_yaxes(title='Tỷ lệ (%)')
         fig.update_layout(width=600, height=500)
@@ -510,7 +522,7 @@ if choice =="Tình trạng thiếu việc làm":
 
 if choice =="Bản đồ":
     st.sidebar.image("streamlit_report/pic/gif_gunner.gif", use_column_width=True)
-    st.title("🗺 Bản đồ thể hiện tình trạng thiếu việc làm theo địa phương")
+    st.title("🗺 Bản đồ thể hiện tình trạng thất nghiệp và thiếu việc làm theo địa phương")
     st.info("""Biểu đồ heatmap có thể thể hiện tỷ lệ thất nghiệp theo địa lý, cho phép nhìn nhận tỉnh trạng thất nghiệp/ thiếu việc làm ở các khu vực khác nhau 
             trên bản đồ.
  Các màu sắc khác nhau có thể biểu thị mức độ của tỷ lệ thất nghiệp, giúp phát hiện ra các khu vực có mức độ thất nghiệp cao hơn so với các khu vực khác.""")
@@ -587,20 +599,20 @@ if choice =="Bản đồ":
 
                     with st.expander("📝See note:"):
                         st.write("""**Trong 5 năm từ 2018 đến 2022, thành phố Đà Nẵng là tỉnh, thành phố có tỷ lệ thất nghiệp cao nhất.**
-**- Đà Nẵng** là một trong những điểm du lịch hàng đầu của Việt Nam. Đại dịch COVID-19 đã gây ra sự suy giảm mạnh mẽ trong lưu lượng 
+* **Đà Nẵng** là một trong những điểm du lịch hàng đầu của Việt Nam. Đại dịch COVID-19 đã gây ra sự suy giảm mạnh mẽ trong lưu lượng 
                                 khách du lịch tới Đà Nẵng. Sự sụt giảm này đã tác động mạnh đến các ngành liên quan đến du lịch dẫn đến việc 
                                 giảm số lượng việc làm trong những ngành này.
-**- Tỉnh Lạng Sơn** là một tỉnh miền núi nằm ở phía Bắc Việt Nam, với điều kiện kinh tế còn nhiều khó khăn. Ngành công nghiệp và dịch vụ tại đây
+* **Tỉnh Lạng Sơn** là một tỉnh miền núi nằm ở phía Bắc Việt Nam, với điều kiện kinh tế còn nhiều khó khăn. Ngành công nghiệp và dịch vụ tại đây
                                   phát triển chậm do thiếu đầu tư và đào tạo nghề. Do đó, chất lượng lao động vẫn chưa cao, lực lượng lao động 
                                  có xu hướng tăng trưởng chậm với trình độ thấp, dẫn đến tỷ lệ thất nghiệp cao.
-**-Thành phố Hồ Chí Minh** là trung tâm kinh tế, thương mại và tài chính lớn nhất cả nước,  với tốc độ tăng trưởng kinh tế luôn ở mức cao. Các 
+* **Thành phố Hồ Chí Minh** là trung tâm kinh tế, thương mại và tài chính lớn nhất cả nước,  với tốc độ tăng trưởng kinh tế luôn ở mức cao. Các 
                                  ngành công nghiệp, dịch vụ và xây dựng tại đây luôn có nhu cầu lao động lớn với số lượng lớn. Bên cạnh đó,  
                                  **Thành phố Hồ Chí Minh** là thành phố đông dân nhất Việt Nam, với dân số hơn 9 triệu người.  Mỗi năm, có hàng 
                                  trăm nghìn người từ các tỉnh thành khác đến thành phố này lập nghiệp, vì thế nguồn cung lao động tại đây ngày 
                                  càng tăng nhanh. Tuy nguồn lao động tại thành phố luôn dồi dào, nhưng trình độ tay nghề và kỹ năng chuyên môn 
                                  của nhiều lao động vẫn còn hạn chế, không đáp ứng được yêu cầu của thị trường lao động. Điều này dẫn đến tình 
                                  trạng thất nghiệp ngày càng cao tại thành phố này.
-**-** Vùng tập trung các tỉnh thành phố có màu đậm hơn tập trung ở vùng **Đồng Bằng Sông Cửu Long**. **Đồng Bằng Sông Cửu Long** là một trong 
+* Vùng tập trung các tỉnh thành phố có màu đậm hơn tập trung ở vùng **Đồng Bằng Sông Cửu Long**. **Đồng Bằng Sông Cửu Long** là một trong 
                                  những vùng lớn nhất về nông nghiệp và ngư nghiệp tại Việt Nam. Tuy nhiên, các ngành này thường phụ thuộc nhiều 
                                  vào yếu tố thiên nhiên và có thể gặp phải các vấn đề như thiếu nước, sạt lở đất và sự biến động của thị trường. 
                                  Điều này dẫn đến sự không ổn định của nguồn thu nhập và đời sống của người dân trong vùng. Bên cạnh đó, Đồng Bằng 
