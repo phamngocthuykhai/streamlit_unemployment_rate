@@ -6,10 +6,11 @@ with col1:
     st.write("""Hiểu rõ hơn về thị trường lao động: Dữ liệu về tỷ lệ thất nghiệp theo từng ngành nghề, khu vực, nhóm tuổi, giới tính,... cho ta biết 
          nhu cầu lao động ở đâu là cao nhất và thấp nhất. Từ đó, các nhà hoạch định chính sách có thể đưa ra định hướng phát triển 
          nguồn nhân lực phù hợp, khuyến khích đầu tư vào các ngành nghề có nhu cầu cao, đồng thời có giải pháp hỗ trợ đào tạo, chuyển 
-         đổi nghề nghiệp cho những người lao động thất nghiệp. \n
+         đổi nghề nghiệp cho những người lao động thất nghiệp. 
+             
 Dữ liệu về tỷ lệ thất nghiệp theo trình độ học vấn, kỹ năng cho ta biết trình độ và kỹ năng nào đang thiếu hụt và dư thừa trên thị 
          trường lao động. Nhờ vậy, các cơ sở giáo dục và đào tạo có thể điều chỉnh chương trình giảng dạy để đáp ứng nhu cầu của thị 
-         trường, giúp người lao động có được kỹ năng phù hợp để dễ dàng tìm kiếm việc làm.\n""")
+         trường, giúp người lao động có được kỹ năng phù hợp để dễ dàng tìm kiếm việc làm.s""")
 
 with col3:
     st.image("streamlit_report/pic/gif_conclusion.gif", use_column_width=True)
