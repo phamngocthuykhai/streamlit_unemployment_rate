@@ -1,7 +1,7 @@
 import streamlit as st
 st.title("Kết luận 📑💡")
 
-col1,col2,col3=st.columns([2,0.1,0.9])
+col1,col2=st.columns([2,1])
 with col1:
     st.write("""Hiểu rõ hơn về thị trường lao động: Dữ liệu về tỷ lệ thất nghiệp theo từng ngành nghề, khu vực, nhóm tuổi, giới tính,... cho ta biết 
          nhu cầu lao động ở đâu là cao nhất và thấp nhất. Từ đó, các nhà hoạch định chính sách có thể đưa ra định hướng phát triển 
@@ -12,7 +12,7 @@ Dữ liệu về tỷ lệ thất nghiệp theo trình độ học vấn, kỹ n
          trường lao động. Nhờ vậy, các cơ sở giáo dục và đào tạo có thể điều chỉnh chương trình giảng dạy để đáp ứng nhu cầu của thị 
          trường, giúp người lao động có được kỹ năng phù hợp để dễ dàng tìm kiếm việc làm.""")
 
-with col3:
+with col2:
     st.image("streamlit_report/pic/gif_conclusion.gif", use_column_width=True)
     
 st.title("**🔑Giải pháp**")    
