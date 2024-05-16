@@ -59,10 +59,11 @@ if choice =="Xu hướng":
         layout = go.Layout(
             title='Biến động tình trạng thất nghiệp và thiếu việc làm (2018-2022)',
             xaxis=dict(title='Năm', range=[2018, 2022]),
-            yaxis=dict(title='Tỷ lệ (%)'))
+            yaxis=dict(title='Tỷ lệ (%)'),
+            width=770, height=500)
         
         fig = go.Figure(data=[trace_unemployment, trace_underemployed], layout=layout)
-        fig.update_layout(width=770, height=500)
+
         st.plotly_chart(fig)
         with st.expander('📝 See note:'):
             st.write("""Biểu đồ cho thấy rằng tỷ lệ thất nghiệp và thiếu việc làm tại Việt Nam đã tăng mạnh trong những năm này. Điều này
@@ -94,8 +95,8 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
 
         # Tạo biểu đồ tròn
         fig = go.Figure(data=[go.Pie(labels=labels, values=sizes, textinfo='percent')])
-        fig.update_layout(title='Các yếu tố ảnh hưởng đến tình trạng thất nghiệp')
-        fig.update_layout(width=500, height=500)
+        fig.update_layout(title='Các yếu tố ảnh hưởng đến tình trạng thất nghiệp',
+                          width=500, height=500)
 
         # Hiển thị biểu đồ trên Streamlit
         st.plotly_chart(fig)
@@ -110,10 +111,10 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
         # giới tính ảnh hưởng đến tình trạng thất nghiệp
         fig = px.line(gender_df, x='Năm', y='Tỷ lệ thất nghiệp', color='Giới tính', labels={'Năm': 'Năm', 'Tỷ lệ thất nghiệp': 'Tỷ lệ'})
         
-        fig.update_layout(title='Tình trạng thất nghiệp phân theo giới tính (2018-2022)')
-        fig.update_xaxes(title='Năm')
-        fig.update_yaxes(title='Tỷ lệ (%)')
-        fig.update_layout(width=500, height=500)
+        fig.update_layout(title='Tình trạng thất nghiệp phân theo giới tính (2018-2022)',
+                        xaxis=dict(title='Năm'),
+                        yaxis=dict(title='Tỷ lệ (%)'),
+                        width=600, height=500)
         
         # Hiển thị biểu đồ trên Streamlit
         st.plotly_chart(fig)
@@ -127,14 +128,14 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
                      trợ người lao động, bao gồm cả phụ nữ, sau đại dịch COVID-19.""")
 
     left_column, right_column = st.columns(2)
-    with left_column:
+    with right_column:
         #Trình độ học vấn ảnh hưởng đến tình trạng thất nghiệp
         fig = px.line(academic_df, x='Năm', y='Tỷ lệ thất nghiệp', color='Học vấn', labels={'Năm': 'Năm', 'Tỷ lệ thất nghiệp': 'Tỷ lệ'})
         
-        fig.update_layout(title='Tình trạng thất nghiệp phân theo trình độ học vấn (2018-2022)')
-        fig.update_xaxes(title='Năm')
-        fig.update_yaxes(title='Tỷ lệ (%)')
-        fig.update_layout(width=600, height=500)
+        fig.update_layout(title='Tình trạng thất nghiệp phân theo trình độ học vấn (2018-2022)',
+                        xaxis=dict(title='Năm'),
+                        yaxis=dict(title='Tỷ lệ (%)'),
+                        width=600, height=500)
         
         # Hiển thị biểu đồ trên Streamlit
         st.plotly_chart(fig)
@@ -150,13 +151,13 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
                      Các ngành nghề mà không yêu cầu trình độ học vấn cao thường có môi trường làm việc linh hoạt và ít yêu cầu về
                       kỹ năng chuyên môn. Điều này có thể làm giảm áp lực tìm kiếm việc làm và tạo ra nhiều cơ hội việc làm hơn.""")
 
-    with right_column:
+    with left_column:
         fig = px.line(age_df, x='Năm', y='Tỷ lệ thất nghiệp', color='Nhóm tuổi', labels={'Năm': 'Năm', 'Tỷ lệ thất nghiệp': 'Tỷ lệ'})
         
-        fig.update_layout(title='Tình trạng thất nghiệp phân theo nhóm tuổi (2018-2022)')
-        fig.update_xaxes(title='Năm')
-        fig.update_yaxes(title='Tỷ lệ (%)')
-        fig.update_layout(width=500, height=500)
+        fig.update_layout(title='Tình trạng thất nghiệp phân theo nhóm tuổi (2018-2022)',
+                        xaxis=dict(title='Năm'),
+                        yaxis=dict(title='Tỷ lệ (%)'),
+                        width=500, height=500)
 
         # Hiển thị biểu đồ trên Streamlit
         st.plotly_chart(fig)
@@ -186,23 +187,25 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
     # Tạo layout
     layout = go.Layout(title='Biểu đồ tỷ suất sinh và tỷ lệ thất nghiệp (Nữ) theo năm',
                     xaxis=dict(title='Năm'),
-                    yaxis=dict(title='Tỷ lệ (%)'))
+                    yaxis=dict(title='Tỷ lệ (%)'),
+                    width=800, height=500)
     
     # Kết hợp
     fig = go.Figure(data=[trace_birth_rate, trace_unemployment_female], layout=layout)
-    fig.update_layout(width=800, height=500)
 
     # Hiển thị biểu đồ trên Streamlit
     st.plotly_chart(fig)
     with st.expander("📝See note:"):
-        st.write("""Tỷ suất sinh= ( Tổng số sinh trong thời kỳ nghiên cứu/ Dân số trung bình)*1000\n\n* Biểu đồ chỉ ra mối tương quan nghịch, nghĩa là khi tỷ lệ thất nghiệp của phụ nữ tăng thì tỷ lệ sinh sẽ giảm.
+        st.write("""Tỷ suất sinh= ( Tổng số sinh trong thời kỳ nghiên cứu/ Dân số trung bình)*1000
+* Biểu đồ chỉ ra mối tương quan nghịch, nghĩa là khi tỷ lệ thất nghiệp của phụ nữ tăng thì tỷ lệ sinh sẽ giảm.
                   Điều này có thể là do một số yếu tố, chẳng hạn như sự bất an về kinh tế, có thể khiến các cặp vợ chồng trì hoãn 
                  hoặc từ bỏ việc sinh con. Các vấn đề:
     * **Bất an kinh tế:** Khi phụ nữ thất nghiệp, họ có thể cảm thấy kém an toàn hơn về mặt tài chính và có nhiều 
                  khả năng trì hoãn hoặc từ bỏ việc sinh con.
     * **Cân bằng giữa công việc và cuộc sống:** Cân bằng giữa công việc và cuộc sống gia đình có thể là một thách thức 
                  và phụ nữ thất nghiệp có thể có nhiều thời gian hơn để chăm sóc con cái. Tuy nhiên, họ cũng có thể phải đối mặt với 
-                 những thách thức trong việc tìm kiếm người chăm sóc trẻ khi tái gia nhập lực lượng lao động.\n\n  * **Khát vọng về học vấn và nghề nghiệp:** Phụ nữ có trình độ học vấn và nguyện vọng nghề nghiệp cao hơn 
+                 những thách thức trong việc tìm kiếm người chăm sóc trẻ khi tái gia nhập lực lượng lao động.
+    * **Khát vọng về học vấn và nghề nghiệp:** Phụ nữ có trình độ học vấn và nguyện vọng nghề nghiệp cao hơn 
                  có thể có nhiều khả năng trì hoãn việc sinh con cho đến khi họ đã ổn định được sự nghiệp của mình.""")
 
 
@@ -232,8 +235,8 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
     fig.update_layout(
         title='Tình trạng thất nghiệp theo phân theo vùng ',
         xaxis=dict(title='Vùng'),
-        yaxis=dict(title='Tỷ lệ(%)'))
-    fig.update_layout(width=1100, height=500)
+        yaxis=dict(title='Tỷ lệ(%)'),
+        width=1100, height=500)
 
     # Hiển thị biểu đồ trên Streamlit 
     st.plotly_chart(fig)
@@ -278,10 +281,11 @@ vực khác.
     # Tạo layout
     layout = go.Layout(title='Tình trạng xuất nhập cư gây ảnh hưởng đến tình trạng thất nghiệp của các năm từ 2018 đến 2022',
                     xaxis=dict(title='Năm'),
-                    yaxis=dict(title='Tỷ lệ (%)'))
+                    yaxis=dict(title='Tỷ lệ (%)'),
+                    width=1000, height=600)
     # Combine
     fig = go.Figure(data=[trace_combined_region,trace_dt_immigration,trace_dt_migration], layout=layout)
-    fig.update_layout(width=1000, height=600)
+
 
     # Hiển thị biểu đồ trên Streamlit
     st.plotly_chart(fig)
@@ -318,11 +322,14 @@ if choice =="Tình trạng thiếu việc làm":
     # Tạo biểu đồ tròn
     trace_pie = go.Pie(labels=labels, values=sizes)
     # Tạo layout 
-    layout = go.Layout(title='Các yếu tố ảnh hưởng đến tình trạng thiếu việc làm')
+    layout = go.Layout(title='Các yếu tố ảnh hưởng đến tình trạng thiếu việc làm',
+                       yaxis=dict(title='Tỷ lệ(%)'),
+                        xaxis=dict(title='Năm'),
+                        width=1000, height=500)
 
     # Combine
     fig = go.Figure(data=[trace_pie], layout=layout)
-    fig.update_layout(width=900, height=500)
+
 
     # Hiển thị biểu đồ trên Streamlit
     st.plotly_chart(fig)
@@ -342,10 +349,10 @@ if choice =="Tình trạng thiếu việc làm":
     with left_column:
         fig = px.line(age_df, x='Năm', y='Tỷ lệ thiếu việc làm', color='Nhóm tuổi', labels={'Năm': 'Năm', 'Tỷ lệ thiếu việc làm': 'Tỷ lệ'})
         # Đặt tên tiêu để và nhãn
-        fig.update_layout(title='Tình trạng thiếu việc làm phân theo nhóm tuổi (2018-2022)')
-        fig.update_xaxes(title='Năm')
-        fig.update_yaxes(title='Tỷ lệ (%)')
-        fig.update_layout(width=500, height=500)
+        fig.update_layout(title='Tình trạng thiếu việc làm phân theo nhóm tuổi (2018-2022)',
+                          yaxis=dict(title='Tỷ lệ(%)'),
+                          xaxis=dict(title='Năm'),
+                          width=600, height=500)
 
         # Hiển thị biểu đồ trên Streamlit
         st.plotly_chart(fig)
@@ -372,10 +379,10 @@ if choice =="Tình trạng thiếu việc làm":
     with right_column:
         fig = px.line(academic_df, x='Năm', y='Tỷ lệ thiếu việc làm', color='Học vấn', labels={'Năm': 'Năm', 'Tỷ lệ thiếu việc làm': 'Tỷ lệ'})
         # Đặt tên tiêu để và nhãn
-        fig.update_layout(title='Tình trạng thiếu việc làm phân theo trình độ học vấn(2018-2022)')
-        fig.update_xaxes(title='Năm')
-        fig.update_yaxes(title='Tỷ lệ (%)')
-        fig.update_layout(width=600, height=500)
+        fig.update_layout(title='Tình trạng thiếu việc làm phân theo trình độ học vấn(2018-2022)',
+                          yaxis=dict(title='Tỷ lệ(%)'),
+                          xaxis=dict(title='Năm'),
+                          width=600, height=500)
 
         # Hiển thị biểu đồ trên Streamlit
         st.plotly_chart(fig)
@@ -401,10 +408,10 @@ if choice =="Tình trạng thiếu việc làm":
         
         fig = px.line(gender_df, x='Năm', y='Tỷ lệ thiếu việc làm', color='Giới tính', labels={'Năm': 'Năm', 'Tỷ lệ thiếu việc làm': 'Tỷ lệ'})
         # Đặt tên tiêu để và nhãn
-        fig.update_layout(title='Tình trạng thiếu việc làm phân theo giới tính(2018-2022)')
-        fig.update_xaxes(title='Năm')
-        fig.update_yaxes(title='Tỷ lệ (%)')
-        fig.update_layout(width=500, height=500)
+        fig.update_layout(title='Tình trạng thiếu việc làm phân theo giới tính(2018-2022)',
+                          yaxis=dict(title='Tỷ lệ(%)'),
+                          xaxis=dict(title='Năm'),
+                          width=500, height=500)
 
         # Hiển thị biểu đồ trên Streamlit
         st.plotly_chart(fig)
@@ -418,10 +425,11 @@ if choice =="Tình trạng thiếu việc làm":
     with right_column:
         fig = px.line(career_df, x='Năm', y='Tỷ lệ thiếu việc làm', color='Ngành', labels={'Năm': 'Năm', 'Tỷ lệ thiếu việc làm': 'Tỷ lệ'})
         # Đặt tên tiêu để và nhãn
-        fig.update_layout(title='Tình trạng thiếu việc làm phân theo nhóm nghành(2018-2022)')
-        fig.update_xaxes(title='Năm')
-        fig.update_yaxes(title='Tỷ lệ (%)')
-        fig.update_layout(width=600, height=500)
+        fig.update_layout(title='Tình trạng thiếu việc làm phân theo nhóm nghành(2018-2022)',
+                          yaxis=dict(title='Tỷ lệ(%)'),
+                          xaxis=dict(title='Năm'),
+                          width=600, height=500)
+
 
         # Hiển thị biểu đồ trên Streamlit
         st.plotly_chart(fig)
@@ -463,8 +471,9 @@ if choice =="Tình trạng thiếu việc làm":
         title='Tình trạng thiếu việc làm theo phân theo vùng',
         xaxis=dict(title='Vùng'),
         yaxis=dict(title='Tỷ lệ(%)'),
-        barmode='group',
+        barmode='group',width=1000, height=600
     )
+
     # Hiển thị biểu đồ trên Streamlit
     st.plotly_chart(fig)
 
@@ -502,11 +511,11 @@ if choice =="Tình trạng thiếu việc làm":
     # Tạo layout
     layout = go.Layout(title='Tình trạng xuất nhập cư gây ảnh hưởng đến tình trạng thiếu việc làm của các năm từ 2018 đến 2022',
                     xaxis=dict(title='Năm'),
-                    yaxis=dict(title='Tỷ lệ (%)'))
+                    yaxis=dict(title='Tỷ lệ (%)'),
+                    width=1000, height=600)
     
     # Combine 
     fig = go.Figure(data=[ trace_combined_region,trace_immigration,trace_migration], layout=layout)
-    fig.update_layout(width=1000, height=600)
 
     # Hiển thị biểu đồ trên Streamlit
     st.plotly_chart(fig)
@@ -686,10 +695,7 @@ if choice =="Bản đồ":
                     heatmap_data = combined_un_df[['Vĩ độ', 'Kinh độ', f'Chung_{selected_year}']].values.tolist()
                     # Thêm heatmap vào bản đồ
                     HeatMap(heatmap_data).add_to(mymap)
-                    # Thêm marker và popup cho từng tỉnh/thành phố
-                    for index, row in combined_un_df.iterrows():
-                        popup_text = f"Tỉnh/Thành phố: {row['Tỉnh']}"
-                        popup_text += f"<br>Tỷ lệ thất nghiệp: {row[f'Chung_{selected_year}']}"
+
                     # Hiển thị bản đồ trong Streamlit
                     folium_static(mymap, width=900, height=800)
                     
@@ -698,10 +704,7 @@ if choice =="Bản đồ":
                     heatmap_data = combined_un_df[['Vĩ độ', 'Kinh độ', f'TT_{selected_year}']].values.tolist()
                     # Thêm heatmap vào bản đồ
                     HeatMap(heatmap_data).add_to(mymap)
-                    # Thêm marker và popup cho từng tỉnh/thành phố
-                    for index, row in combined_un_df.iterrows():
-                        popup_text = f"Tỉnh/Thành phố: {row['Tỉnh']}"
-                        popup_text += f"<br>Tỷ lệ thất nghiệp(TT): {row[f'TT_{selected_year}']}"
+
                     # Hiển thị bản đồ trong Streamlit
                     st.write("**Phân theo thành thị:**")
                     folium_static(mymap, width=900, height=800)
@@ -711,10 +714,7 @@ if choice =="Bản đồ":
                     heatmap_data = combined_un_df[['Vĩ độ', 'Kinh độ', f'NT_{selected_year}']].values.tolist()
                     # Thêm heatmap vào bản đồ
                     HeatMap(heatmap_data).add_to(mymap)
-                    # Thêm marker và popup cho từng tỉnh/thành phố
-                    for index, row in combined_un_df.iterrows():
-                        popup_text = f"Tỉnh/Thành phố: {row['Tỉnh']}"
-                        popup_text += f"<br>Tỷ lệ thất nghiệp(NT): {row[f'NT_{selected_year}']}"
+
                     # Hiển thị bản đồ trong Streamlit
                     st.write("**Phân theo nông thôn:**")
                     folium_static(mymap, width=900, height=800)
@@ -766,20 +766,17 @@ if choice =="Bản đồ":
                     heatmap_data = combined_under_df[['Vĩ độ', 'Kinh độ', 'avg_province']].values.tolist()
                     # Thêm heatmap vào bản đồ
                     HeatMap(heatmap_data).add_to(mymap)
-                    # Thêm marker và popup cho từng tỉnh/thành phố
-                    for index, row in combined_under_df.iterrows():
-                        popup_text = f"Tỉnh/Thành phố: {row['Tỉnh']}"
-                        popup_text += f"<br>Tổng thiếu việc làm: {row['avg_province']}"
+
                     # Hiển thị bản đồ trong Streamlit
                     folium_static(mymap, width=900, height=800)
                     with st.expander("📝See note:"):
-                        st.write("""**Đắk Lắk** là một trong những tỉnh có nền kinh tế nông nghiệp phát triển, nhưng ngành này thường gặp phải 
+                        st.write("""* **Đắk Lắk** là một trong những tỉnh có nền kinh tế nông nghiệp phát triển, nhưng ngành này thường gặp phải 
                                  những thách thức như sự thiếu hụt vốn đầu tư, công nghệ lạc hậu và khí hậu không ổn định. Ngoài ra, sự chuyển 
                                  dịch từ nông nghiệp sang công nghiệp thường chậm trễ, dẫn đến sự phụ thuộc lớn vào lao động nông thôn và một 
                                  tỷ lệ thất nghiệp cao.
 * **Đồng Bằng sônng Cửu Long** là một trong những vùng đất có mật độ 
                                  dân số cao nhất ở Việt Nam. Sự gia tăng dân số, đặc biệt là ở các thành phố và thị trấn lớn, có thể tạo ra áp lực 
-                                 lớn cho thị trường lao động và gây ra tình trạng thiếu việc làm. **Đồng Bằng sông Cửu Long** chủ yếu làm việc trong 
+                                 lớn cho thị trường lao động và gây ra tình trạng thiếu việc làm. Đồng Bằng sông Cửu Long chủ yếu làm việc trong 
                                  ngành nông nghiệp, nhưng sự phát triển của ngành công nghiệp và dịch vụ ở khu vực này không đồng đều,gây ra sự 
                                  không ổn định trong nền kinh tế và việc làm.
     Trong đó có 2 tỉnh/thành phố có tỷ lệ thất nghiệp cao nhất nước, đó là:
@@ -805,9 +802,6 @@ if choice =="Bản đồ":
                     # Thêm heatmap vào bản đồ
                     HeatMap(heatmap_data).add_to(mymap)
 
-                    # Thêm marker và popup cho từng tỉnh/thành phố
-                    for index, row in combined_under_df.iterrows():
-                        popup_text = f"Tỉnh/Thành phố: {row['Tỉnh']}"
                     st.write(f"Phân theo thành thị:")
                     folium_static(mymap, width=900, height=800)
                     with st.expander("📝See note:"):
@@ -832,10 +826,6 @@ if choice =="Bản đồ":
                     # Thêm heatmap vào bản đồ
                     HeatMap(heatmap_data).add_to(mymap)
 
-                    # Thêm marker và popup cho từng tỉnh/thành phố
-                    for index, row in combined_under_df.iterrows():
-                        popup_text = f"Tỉnh/Thành phố: {row['Tỉnh']}"
-
                     folium_static(mymap, width=900, height=800)
 
                     st.write(f"Phân theo nông thôn:")
@@ -856,10 +846,6 @@ if choice =="Bản đồ":
                     heatmap_data = combined_under_df[['Vĩ độ', 'Kinh độ', f'Chung_{selected_year}']].values.tolist()
                     # Thêm heatmap vào bản đồ
                     HeatMap(heatmap_data).add_to(mymap)
-                    # Thêm marker và popup cho từng tỉnh/thành phố
-                    for index, row in combined_under_df.iterrows():
-                        popup_text = f"Tỉnh/Thành phố: {row['Tỉnh']}"
-                        popup_text += f"<br>Tỷ lệ thiếu việc làm: {row[f'Chung_{selected_year}']}"
 
                     # Hiển thị bản đồ trong Streamlit
                     folium_static(mymap, width=900, height=800)
@@ -870,11 +856,6 @@ if choice =="Bản đồ":
 
                     # Thêm heatmap vào bản đồ
                     HeatMap(heatmap_data).add_to(mymap)
-
-                    # Thêm marker và popup cho từng tỉnh/thành phố
-                    for index, row in combined_under_df.iterrows():
-                        popup_text = f"Tỉnh/Thành phố: {row['Tỉnh']}"
-                        popup_text += f"<br>Tỷ lệ thiếu việc làm(TT): {row[f'TT_{selected_year}']}"
 
                     # Hiển thị bản đồ trong Streamlit
                     st.write("**Phân theo thành thị:**")
@@ -887,11 +868,6 @@ if choice =="Bản đồ":
 
                     # Thêm heatmap vào bản đồ
                     HeatMap(heatmap_data).add_to(mymap)
-
-                    # Thêm marker và popup cho từng tỉnh/thành phố
-                    for index, row in combined_under_df.iterrows():
-                        popup_text = f"Tỉnh/Thành phố: {row['Tỉnh']}"
-                        popup_text += f"<br>Tỷ lệ thiếu việc làm(NT): {row[f'NT_{selected_year}']}"
 
                     # Hiển thị bản đồ trong Streamlit
                     st.write("**Phân theo nông thôn:**")
