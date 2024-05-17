@@ -8,7 +8,7 @@ st.title("**📁 Mô tả dữ liệu**")
 region_df= pd.read_csv('streamlit_report/data_csv/Region.csv')
 age_df= pd.read_csv('streamlit_report/data_csv/Age.csv')
 career_df= pd.read_csv('streamlit_report/data_csv/Career.csv')
-academic_df= pd.read_csv('streamlit_report/data_csv/Academic.csv')
+education_df= pd.read_csv('streamlit_report/data_csv/Education.csv')
 gender_df= pd.read_csv('streamlit_report/data_csv/Gender.csv')
 location_df=pd.read_csv('streamlit_report/data_csv/data_location.csv')
 birth_df=pd.read_csv('streamlit_report/data_csv/data_birth.csv')
@@ -27,7 +27,7 @@ under_2020_df=pd.read_csv('streamlit_report/data_csv/underemployment_province/un
 under_2018_df=pd.read_csv('streamlit_report/data_csv/underemployment_province/under_province_2018.csv')
 under_2019_df=pd.read_csv('streamlit_report/data_csv/underemployment_province/under_province_2019.csv') 
 
-dataframes = [region_df, age_df, career_df, academic_df, gender_df, location_df, birth_df, migration_df, immigration_df,
+dataframes = [region_df, age_df, career_df, education_df, gender_df, location_df, birth_df, migration_df, immigration_df,
               un_2018_df, un_2019_df, un_2020_df, un_2021_df, un_2022_df,
               under_2018_df, under_2019_df, under_2020_df, under_2021_df, under_2022_df]
 
@@ -42,7 +42,7 @@ total_underemployment_row_count = 0
 
 # Lặp qua từng DataFrame và đếm số lượng dòng dữ liệu cũng như dòng dữ liệu có cột 'Tỷ lệ thất nghiệp' và 'Tỷ lệ thiếu việc làm'
 for df_name, df in zip(["region_df", "age_df", "career_df",
-                         "academic_df", "gender_df", "location_df", 
+                         "education_df", "gender_df", "location_df", 
                          "birth_df", "migration_df", "immigration_df"], dataframes):
     row_counts[df_name] = df.shape[0]
     total_row_count += df.shape[0]
@@ -94,7 +94,7 @@ st.markdown('---')
 
 
 
-st.title("**Overview**")
+
 tab1, tab2, tab3,tab4,tab5,tab6,tab7,tab8,tab9,tab10 = st.tabs([
  "Vùng kinh tế", "Giới tính", "Nhóm tuổi","Học vấn","Nhóm ngành","Tỉnh/thành phố","Vị trí","Tỷ suất sinh", "Tỷ suất xuất cư","Tỷ suất nhập cư"
  ])
@@ -112,7 +112,7 @@ with tab3:
  st_profile_report(profile_df)
 with tab4:
  st.write('📖 Học vấn: chứa dữ liệu về tỷ lệ thất nghiệp và thiếu việc làm phân theo trình độ học vấn từ năm 2018 đến năm 2022')
- profile_df = academic_df.profile_report()
+ profile_df = education_df.profile_report()
  st_profile_report(profile_df)
 with tab5:
  st.write('👝 Nhóm ngành: chứa dữ liệu về thiếu việc làm phân theo nhóm ngành từ năm 2018 đến năm 2022')

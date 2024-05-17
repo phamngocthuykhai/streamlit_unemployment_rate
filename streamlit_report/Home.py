@@ -2,10 +2,14 @@ import streamlit as st
 import pandas as pd
 st.set_page_config(page_title='Home',page_icon=":👥:",layout='wide')
 st.title("Phân tích dữ liệu về tình trạng thất nghiệp và thiếu việc làm trong độ tuổi lao động tại Việt Nam từ năm 2018 đến năm 2022")
-st.write("""Thị trường lao động Việt Nam đang có nhiều biến động, đặc biệt là sau đại dịch Covid-19. Tỷ lệ thất nghiệp và tỷ lệ thiếu việc 
-         làm là những vấn đề ảnh hưởng trực tiếp đến đời sống của người lao động và sự phát triển kinh tế - xã hội của đất nước. Phân tích 
-         tỷ lệ thất nghiệp và tỷ lệ thiếu việc làm trong giai đoạn từ năm 2018 đến năm 2022 sẽ giúp chúng ta hiểu rõ hơn về thực trạng thị 
-         trường lao động, từ đó đề xuất các giải pháp phù hợp để giải quyết những vấn đề này.""")
+st.write("""Trong giai đoạn từ năm 2018 đến năm 2022, tình trạng thất nghiệp và thiếu việc làm tại Việt Nam đã trải qua nhiều biến động đáng
+          kể, đặc biệt dưới ảnh hưởng của đại dịch Covid-19. Từ một nền kinh tế tăng trưởng mạnh mẽ với tỷ lệ thất nghiệp thấp vào năm 2018 
+         và 2019, Việt Nam đã phải đối mặt với những thách thức nghiêm trọng khi đại dịch bùng phát vào năm 2020. Sự gián đoạn trong hoạt
+          động kinh doanh và sản xuất đã đẩy tỷ lệ thất nghiệp lên cao và gây ra tình trạng thiếu việc làm lan rộng. Tuy nhiên, nhờ vào các 
+         biện pháp hỗ trợ kinh tế và chính sách phục hồi hiệu quả của chính phủ, thị trường lao động đã dần phục hồi từ năm 2021, với tỷ lệ 
+         thất nghiệp bắt đầu giảm xuống. Việc phân tích chi tiết tình trạng thất nghiệp và thiếu việc làm trong khoảng thời gian này không 
+         chỉ giúp hiểu rõ hơn về thực trạng thị trường lao động mà còn đề xuất các giải pháp phù hợp để thúc đẩy phát triển kinh tế và cải 
+         thiện đời sống của người lao động.""")
 
 
 st.image("streamlit_report/pic/pic_home.jpg", use_column_width=True)

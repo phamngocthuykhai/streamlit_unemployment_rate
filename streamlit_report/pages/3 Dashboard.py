@@ -11,7 +11,7 @@ st.set_page_config(page_title='Dashboard',page_icon=":📊:",layout='wide')
 region_df= pd.read_csv('streamlit_report/data_csv/Region.csv')
 age_df= pd.read_csv('streamlit_report/data_csv/Age.csv')
 career_df= pd.read_csv('streamlit_report/data_csv/Career.csv')
-academic_df= pd.read_csv('streamlit_report/data_csv/Academic.csv')
+education_df= pd.read_csv('streamlit_report/data_csv/Education.csv')
 gender_df= pd.read_csv('streamlit_report/data_csv/Gender.csv')
 location_df=pd.read_csv('streamlit_report/data_csv/data_location.csv')
 birth_df=pd.read_csv('streamlit_report/data_csv/data_birth.csv')
@@ -64,7 +64,7 @@ if choice =="Xu hướng":
         
         fig = go.Figure(data=[trace_unemployment, trace_underemployed], layout=layout)
 
-        st.plotly_chart(fig)
+        st.plotly_chart(fig)    
         with st.expander('📝 See note:'):
             st.write("""Biểu đồ cho thấy rằng tỷ lệ thất nghiệp và thiếu việc làm tại Việt Nam đã tăng mạnh trong những năm này. Điều này
                       có thể được giải thích bởi ảnh hưởng của đại dịch COVID-19, khi nền kinh tế gặp khó khăn và nhiều ngành công nghiệp 
@@ -89,9 +89,9 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
     with left_column:
         un_gen = gender_df['Tỷ lệ thất nghiệp'].sum()
         un_age = age_df['Tỷ lệ thất nghiệp'].sum()
-        un_academic = academic_df['Tỷ lệ thất nghiệp'].sum()
+        un_education = education_df['Tỷ lệ thất nghiệp'].sum()
         labels = ['Giới tính', 'Tuổi', 'Học vấn']
-        sizes = [un_gen, un_age, un_academic]
+        sizes = [un_gen, un_age, un_education]
 
         # Tạo biểu đồ tròn
         fig = go.Figure(data=[go.Pie(labels=labels, values=sizes, textinfo='percent')])
@@ -130,7 +130,7 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
     left_column, right_column = st.columns(2)
     with right_column:
         #Trình độ học vấn ảnh hưởng đến tình trạng thất nghiệp
-        fig = px.line(academic_df, x='Năm', y='Tỷ lệ thất nghiệp', color='Học vấn', labels={'Năm': 'Năm', 'Tỷ lệ thất nghiệp': 'Tỷ lệ'})
+        fig = px.line(education_df, x='Năm', y='Tỷ lệ thất nghiệp', color='Học vấn', labels={'Năm': 'Năm', 'Tỷ lệ thất nghiệp': 'Tỷ lệ'})
         
         fig.update_layout(title='Tình trạng thất nghiệp phân theo trình độ học vấn (2018-2022)',
                         xaxis=dict(title='Năm'),
@@ -314,11 +314,11 @@ if choice =="Tình trạng thiếu việc làm":
             dùng dễ dàng theo dõi, so sánh các chỉ số về thất nghiệp theo thời gian, khu vực, ngành nghề, nhóm đối tượng,...""")
     under_gen = gender_df['Tỷ lệ thiếu việc làm'].sum()
     under_age = age_df['Tỷ lệ thiếu việc làm'].sum()
-    under_academic = academic_df['Tỷ lệ thiếu việc làm'].sum()
+    under_education = education_df['Tỷ lệ thiếu việc làm'].sum()
     career = career_df['Tỷ lệ thiếu việc làm'].sum()
 
     labels = ['Học vấn', 'Tuổi', "Ngành nghề", 'Giới tính']
-    sizes = [under_academic, under_age, career,under_gen,]
+    sizes = [under_education, under_age, career,under_gen,]
     # Tạo biểu đồ tròn
     trace_pie = go.Pie(labels=labels, values=sizes)
     # Tạo layout 
@@ -352,7 +352,7 @@ if choice =="Tình trạng thiếu việc làm":
         fig.update_layout(title='Tình trạng thiếu việc làm phân theo nhóm tuổi (2018-2022)',
                           yaxis=dict(title='Tỷ lệ(%)'),
                           xaxis=dict(title='Năm'),
-                          width=600, height=500)
+                          width=500, height=500)
 
         # Hiển thị biểu đồ trên Streamlit
         st.plotly_chart(fig)
@@ -377,7 +377,7 @@ if choice =="Tình trạng thiếu việc làm":
 
 
     with right_column:
-        fig = px.line(academic_df, x='Năm', y='Tỷ lệ thiếu việc làm', color='Học vấn', labels={'Năm': 'Năm', 'Tỷ lệ thiếu việc làm': 'Tỷ lệ'})
+        fig = px.line(education_df, x='Năm', y='Tỷ lệ thiếu việc làm', color='Học vấn', labels={'Năm': 'Năm', 'Tỷ lệ thiếu việc làm': 'Tỷ lệ'})
         # Đặt tên tiêu để và nhãn
         fig.update_layout(title='Tình trạng thiếu việc làm phân theo trình độ học vấn(2018-2022)',
                           yaxis=dict(title='Tỷ lệ(%)'),
