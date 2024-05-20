@@ -43,7 +43,7 @@ if choice =="Xu hướng":
     st.info("""Dashboard xu hướng biến động tình trạng thất nghiệp và thiếu việc làm cung cấp cái nhìn tổng quan về thị trường lao động
                 trong giai đoạn 2018-2022""")
     
-    col1,col2=st.columns([2.,1])
+    col1,col2=st.columns([2,1])
     with col1:
         years = [2018, 2019, 2020, 2021, 2022]
         unemployment={}
@@ -55,7 +55,7 @@ if choice =="Xu hướng":
         # Tạo biểu đồ xu hướng tỷ lệ thất nghiệp và thiếu việc làm
         trace_unemployment = go.Scatter(x=years, y=list(unemployment.values()), mode='lines', name='Tỷ lệ thất nghiệp')
         trace_underemployed = go.Scatter(x=years, y=list(underemployed.values()), mode='lines', name='Tỷ lệ thiếu việc làm')
-        # Tạo layout
+        # Layout
         layout = go.Layout(
             title='Biến động tình trạng thất nghiệp và thiếu việc làm (2018-2022)',
             xaxis=dict(title='Năm', range=[2018, 2022]),
@@ -79,7 +79,6 @@ if choice =="Xu hướng":
 if choice =="Tình trạng thất nghiệp":
     st.sidebar.image("streamlit_report/pic/gif_chart.gif", use_column_width=True)
     st.title("**📊Dashboard các yếu tố ảnh hưởng đến tình trạng thất nghiệp tại Việt Nam(2018-2022)**")
-
     st.info("""Cung cấp cái nhìn tổng quan, trực quan về xu hướng tình trạng thất nghiệp trong giai đoạn 2018-2022.\n
 Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất nghiệp theo thời gian, khu vực, ngành nghề, nhóm đối tượng,...""")
     
@@ -102,7 +101,6 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
                       trình độ học vấn đóng vai trò quan trọng trong việc tìm kiếm việc làm và tránh thất nghiệp. Tuổi: Chiếm tỷ lệ
                        35,2% .Giới tính: Chiếm tỷ lệ 16,8%.\n\n Biểu đồ cho thấy tầm quan trọng của việc nâng cao trình độ học vấn. Biểu đồ cũng cho thấy cần có các chính sách hỗ trợ việc làm phù 
                       hợp với từng nhóm đối tượng khác nhau như giới tính, độ tuổi, ... để giảm thiểu tỷ lệ thất nghiệp.""")
-
 
 
     with right_column:
@@ -132,8 +130,7 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
         
         fig.update_layout(title='Tình trạng thất nghiệp phân theo trình độ học vấn (2018-2022)',
                         xaxis=dict(title='Năm'),
-                        yaxis=dict(title='Tỷ lệ (%)'),
-                        width=600, height=500)
+                        yaxis=dict(title='Tỷ lệ (%)'))
         # Hiển thị biểu đồ trên Streamlit
         st.plotly_chart(fig)
         with st.expander("📝See note:"):
@@ -153,8 +150,7 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
         
         fig.update_layout(title='Tình trạng thất nghiệp phân theo nhóm tuổi (2018-2022)',
                         xaxis=dict(title='Năm'),
-                        yaxis=dict(title='Tỷ lệ (%)'),
-                        width=500, height=500)
+                        yaxis=dict(title='Tỷ lệ (%)'))
         # Hiển thị biểu đồ trên Streamlit
         st.plotly_chart(fig)
         with st.expander("📝See note:"):
@@ -179,7 +175,7 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
     trace_birth_rate = go.Bar(x=birth_df.groupby('Năm')['Tỷ suất sinh'].mean().index,
                             y=birth_df.groupby('Năm')['Tỷ suất sinh'].mean().values, name='Tỷ suất sinh',
                             text=birth_df.groupby('Năm')['Tỷ suất sinh'].mean().values.round(3))
-    # Tạo layout
+    # Layout
     layout = go.Layout(title='Biểu đồ tỷ suất sinh và tỷ lệ thất nghiệp (Nữ) theo năm',
                     xaxis=dict(title='Năm'),
                     yaxis=dict(title='Tỷ lệ (%)'),
@@ -220,7 +216,7 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
         traces.append(trace)
     # Tạo biểu đồ
     fig = go.Figure(data=traces)
-    # Cập nhật layout
+    # Layout
     fig.update_layout(
         title='Tình trạng thất nghiệp theo phân theo vùng',
         xaxis=dict(title='Vùng'),
@@ -262,7 +258,7 @@ hóa thường dẫn đến sự cạnh tranh tìm việc làm rất cao giữa 
     # Tạo biểu đồ thanh theo dõi tỷ lệ thất nghiệp theo năm
     trace_combined_region = go.Bar(x=region_df.groupby('Năm')['Tỷ lệ thất nghiệp'].mean().index,
                             y=region_df.groupby('Năm')['Tỷ lệ thất nghiệp'].mean().values, name='Tỷ lệ thất nghiệp')
-    # Tạo layout
+    # Layout
     layout = go.Layout(title='Tình trạng xuất nhập cư gây ảnh hưởng đến tình trạng thất nghiệp của các năm từ 2018 đến 2022',
                     xaxis=dict(title='Năm'),
                     yaxis=dict(title='Tỷ lệ (%)'),
@@ -302,7 +298,7 @@ if choice =="Tình trạng thiếu việc làm":
     sizes = [under_education, under_age, career,under_gen,]
     # Tạo biểu đồ tròn
     trace_pie = go.Pie(labels=labels, values=sizes)
-    # Tạo layout 
+    # Layout 
     layout = go.Layout(title='Các yếu tố ảnh hưởng đến tình trạng thiếu việc làm',
                        yaxis=dict(title='Tỷ lệ(%)'),
                         xaxis=dict(title='Năm'),
@@ -350,7 +346,6 @@ if choice =="Tình trạng thiếu việc làm":
                      tích lũy được nhiều kinh nghiệm và xây dựng được mạng lưới liên kết trong nghề nghiệp, giúp họ duy trì việc làm ổn định
                       hơn. Ngoài ra, chính sách nghỉ hưu sớm ở một số quốc gia cũng có thể ảnh hưởng đến tỷ lệ thiếu việc làm của nhóm tuổi 
                      này, khi nhiều người lựa chọn hoặc bị khuyến khích nghỉ hưu trước tuổi lao động chính thức.""")
-
 
 
     with right_column:
@@ -434,7 +429,7 @@ if choice =="Tình trạng thiếu việc làm":
         traces.append(trace)
         # Tạo biểu đồ
     fig = go.Figure(data=traces)
-        # Cập nhật layout
+        # Layout
     fig.update_layout(
         title='Tình trạng thiếu việc làm theo phân theo vùng',
         xaxis=dict(title='Vùng'),
@@ -471,7 +466,7 @@ if choice =="Tình trạng thiếu việc làm":
     trace_combined_region = go.Bar(x=region_df.groupby('Năm')['Tỷ lệ thiếu việc làm'].mean().index,
                             y=region_df.groupby('Năm')['Tỷ lệ thiếu việc làm'].mean().values, name='Tỷ lệ thiếu việc làm')
     
-    # Tạo layout
+    # Layout
     layout = go.Layout(title='Tình trạng xuất nhập cư gây ảnh hưởng đến tình trạng thiếu việc làm của các năm từ 2018 đến 2022',
                     xaxis=dict(title='Năm'),
                     yaxis=dict(title='Tỷ lệ (%)'),
@@ -535,14 +530,12 @@ if choice =="Bản đồ":
         combined_un_df = pd.merge(location_df, combined_un_province_df, on='Tỉnh')
 
         # Tình trung bình để xác định vị trí trung tâm hiển thị bản đồ
-        mean_latitude = combined_un_df['Vĩ độ'].mean()
-        mean_longitude = combined_un_df['Kinh độ'].mean()
-
+        mean_latitude = location_df['Vĩ độ'].mean()
+        mean_longitude = location_df['Kinh độ'].mean()
         mymap = folium.Map(location=[mean_latitude, mean_longitude], zoom_start=6)
 
         # Tạo Selectbox từ năm 2018 đến 2022
         selected_year = st.selectbox('**Bản đồ tỷ lệ thất nghiệp năm:**', ['2018-2022',2018, 2019, 2020, 2021, 2022])
-
         if selected_year=='2018-2022':
             left_column, right_column = st.columns([2.6,0.4])
             with right_column:
@@ -556,16 +549,12 @@ if choice =="Bản đồ":
                     combined_un_province_df['avg_province'] = combined_un_province_df['avg_province']
                     # Kết hợp với DataFrame location_df
                     combined_un_df = pd.merge(location_df, combined_un_province_df, on='Tỉnh')
-                    # Tính trung bình vĩ độ và kinh độ
-                    mean_latitude = combined_un_df['Vĩ độ'].mean()
-                    mean_longitude = combined_un_df['Kinh độ'].mean()
-
                     # Tạo dữ liệu heatmap từ combined_un_df
                     heatmap_data = combined_un_df[['Vĩ độ', 'Kinh độ', 'avg_province']].values.tolist()
                     # Thêm heatmap vào bản đồ
                     HeatMap(heatmap_data).add_to(mymap)
                     # Hiển thị bản đồ trong Streamlit
-                    folium_static(mymap, width=900, height=800)
+                    folium_static(mymap, width=900, height=700)
 
                     with st.expander("📝See note:"):
                         st.write("""**Trong 5 năm từ 2018 đến 2022, thành phố Đà Nẵng là tỉnh, thành phố có tỷ lệ thất nghiệp cao nhất.**
@@ -593,21 +582,11 @@ if choice =="Bản đồ":
                     combined_un_province_df['avg_tt'] = combined_un_province_df[['TT_2018','TT_2019', 'TT_2020', 'TT_2021', 'TT_2022']].mean(axis=1)
                     # Chuyển đổi kiểu dữ liệu của cột 'avg' thành float64
                     combined_un_province_df['avg_tt'] = combined_un_province_df['avg_tt'].astype('float64')
-
                     combined_un_df = pd.merge(location_df, combined_un_province_df, on='Tỉnh')
-
-                    mean_latitude = combined_un_df['Vĩ độ'].mean()
-                    mean_longitude = combined_un_df['Kinh độ'].mean()
-
                     # Tạo dữ liệu heatmap từ combined_un_df
                     heatmap_data = combined_un_df[['Vĩ độ', 'Kinh độ', 'avg_tt']].values.tolist()
-
                     # Thêm heatmap vào bản đồ
                     HeatMap(heatmap_data).add_to(mymap)
-
-                    # Thêm marker và popup cho từng tỉnh/thành phố
-                    for index, row in combined_un_df.iterrows():
-                        popup_text = f"Tỉnh/Thành phố: {row['Tỉnh']}"
                     st.write("**Phân theo thành thị:**")
                     folium_static(mymap, width=900, height=800)
                     with st.expander("📝See note:"):
@@ -620,24 +599,14 @@ if choice =="Bản đồ":
                     combined_un_province_df['avg_nt'] = combined_un_province_df[['NT_2018','NT_2019', 'NT_2020', 'NT_2021', 'NT_2022']].mean(axis=1)
                     # Chuyển đổi kiểu dữ liệu của cột 'avg' thành float64
                     combined_un_province_df['avg_nt'] = combined_un_province_df['avg_nt'].astype('float64')
-
                     combined_un_df = pd.merge(location_df, combined_un_province_df, on='Tỉnh')
-
-                    mean_latitude = combined_un_df['Vĩ độ'].mean()
-                    mean_longitude = combined_un_df['Kinh độ'].mean()
-
                     # Tạo dữ liệu heatmap từ combined_un_df
                     heatmap_data = combined_un_df[['Vĩ độ', 'Kinh độ', 'avg_nt']].values.tolist()
-
                     # Thêm heatmap vào bản đồ
                     HeatMap(heatmap_data).add_to(mymap)
 
-                    # Thêm marker và popup cho từng tỉnh/thành phố
-                    for index, row in combined_un_df.iterrows():
-                        popup_text = f"Tỉnh/Thành phố: {row['Tỉnh']}"
                     st.write("**Phân theo nông thôn:**")
                     folium_static(mymap, width=900, height=800)
-
                     with st.expander("📝See note:"):
                         st.write("""**Ở khu vực nông thôn**, cơ hội việc làm thường ít hơn so với thành thị do sự thiếu hụt các doanh 
                                  nghiệp và cơ sở kinh doanh lớn. Đây là do nông thôn thường tập trung vào các ngành nghề chủ yếu như nông 
@@ -656,30 +625,26 @@ if choice =="Bản đồ":
                     heatmap_data = combined_un_df[['Vĩ độ', 'Kinh độ', f'Chung_{selected_year}']].values.tolist()
                     # Thêm heatmap vào bản đồ
                     HeatMap(heatmap_data).add_to(mymap)
-
                     # Hiển thị bản đồ trong Streamlit
                     folium_static(mymap, width=900, height=800)
                     
                 if choice=="Thành thị":
-                                # Lọc dữ liệu heatmap theo năm được chọn
+                    # Lọc dữ liệu heatmap theo năm được chọn
                     heatmap_data = combined_un_df[['Vĩ độ', 'Kinh độ', f'TT_{selected_year}']].values.tolist()
                     # Thêm heatmap vào bản đồ
                     HeatMap(heatmap_data).add_to(mymap)
-
                     # Hiển thị bản đồ trong Streamlit
                     st.write("**Phân theo thành thị:**")
                     folium_static(mymap, width=900, height=800)
                 
                 if choice=="Nông thôn":
-                                # Lọc dữ liệu heatmap theo năm được chọn
+                    # Lọc dữ liệu heatmap theo năm được chọn
                     heatmap_data = combined_un_df[['Vĩ độ', 'Kinh độ', f'NT_{selected_year}']].values.tolist()
                     # Thêm heatmap vào bản đồ
                     HeatMap(heatmap_data).add_to(mymap)
-
                     # Hiển thị bản đồ trong Streamlit
                     st.write("**Phân theo nông thôn:**")
-                    folium_static(mymap, width=900, height=800)
-
+                    folium_static(mymap, width=900, height=700)
 
 
     if chosen_tab == underemployment:
@@ -719,9 +684,6 @@ if choice =="Bản đồ":
                     combined_under_province_df['avg_province'] = combined_under_province_df['avg_province'].astype('float64')
                     # Kết hợp với DataFrame location_df
                     combined_under_df = pd.merge(location_df, combined_under_province_df, on='Tỉnh')
-                    # Tính trung bình vĩ độ và kinh độ
-                    mean_latitude = combined_under_df['Vĩ độ'].mean()
-                    mean_longitude = combined_under_df['Kinh độ'].mean()
 
                     # Tạo dữ liệu heatmap từ combined_under_df
                     heatmap_data = combined_under_df[['Vĩ độ', 'Kinh độ', 'avg_province']].values.tolist()
@@ -751,15 +713,9 @@ if choice =="Bản đồ":
                     combined_under_province_df['avg_tt'] = combined_under_province_df[['TT_2018','TT_2019', 'TT_2020', 'TT_2021', 'TT_2022']].mean(axis=1)
                     # Chuyển đổi kiểu dữ liệu của cột 'avg' thành float64
                     combined_under_province_df['avg_tt'] = combined_under_province_df['avg_tt'].astype('float64')
-
                     combined_under_df = pd.merge(location_df, combined_under_province_df, on='Tỉnh')
-
-                    mean_latitude = combined_under_df['Vĩ độ'].mean()
-                    mean_longitude = combined_under_df['Kinh độ'].mean()
-
                     # Tạo dữ liệu heatmap từ combined_under_df
                     heatmap_data = combined_under_df[['Vĩ độ', 'Kinh độ', 'avg_tt']].values.tolist()
-
                     # Thêm heatmap vào bản đồ
                     HeatMap(heatmap_data).add_to(mymap)
 
@@ -778,13 +734,11 @@ if choice =="Bản đồ":
                     combined_under_province_df['avg_nt'] = combined_under_province_df['avg_nt'].astype('float64')
 
                     combined_under_df = pd.merge(location_df, combined_under_province_df, on='Tỉnh')
-                    mean_latitude = combined_under_df['Vĩ độ'].mean()
-                    mean_longitude = combined_under_df['Kinh độ'].mean()
 
                     # Tạo dữ liệu heatmap từ combined_under_df
                     heatmap_data = combined_under_df[['Vĩ độ', 'Kinh độ', 'avg_nt']].values.tolist()
 
-                    # Thêm heatmap vào bản đồ
+                    # Thêm heatmap vào bản đồs
                     HeatMap(heatmap_data).add_to(mymap)
 
                     folium_static(mymap, width=900, height=800)
@@ -797,7 +751,7 @@ if choice =="Bản đồ":
                                   ngành nông nghiệp gặp sự suy giảm do tác động của biến đổi khí hậu, tỷ lệ thiếu việc làm có thể tăng lên.""")
                     
         else:
-            left_column, right_column = st.columns([2.6,0.4])
+            left_column, right_column = st.columns([2,1])
             with right_column:
                 choice = st.radio("", ["Chung", "Thành thị", "Nông thôn"], key='radio_choice')
 
