@@ -495,8 +495,8 @@ if choice =="Tình trạng thiếu việc làm":
 if choice =="Bản đồ":
     st.sidebar.image("streamlit_report/pic/gif_gunner.gif", use_column_width=True)
     st.title("🗺 Bản đồ thể hiện tình trạng thất nghiệp và thiếu việc làm theo địa phương")
-    st.info("""Biểu đồ heatmap thể thể hiện tình trạng thất nghiệp/ thiếu việc làm ở các khu vực khác nhau 
-            của Việt Nam trên bản đồ.\n\n Các màu sắc khác nhau có thể biểu thị mức độ của tỷ lệ thất nghiệp và thiếu liệc làm, giúp phát hiện ra các khu vực có mức độ thất 
+    st.info("""Biểu đồ heatmap thể thể hiện tình trạng thất nghiệp/ thiếu việc làm ở các khu vực khác nhau của Việt Nam trên bản đồ.\n\n Các 
+            màu sắc khác nhau có thể biểu thị mức độ của tỷ lệ thất nghiệp và thiếu liệc làm, giúp phát hiện ra các khu vực có mức độ thất 
             nghiệp cao hơn so với các khu vực khác.""")
     
     #Tạo tab
