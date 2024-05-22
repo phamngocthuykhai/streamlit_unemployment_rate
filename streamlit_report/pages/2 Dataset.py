@@ -99,7 +99,7 @@ tab1, tab2, tab3,tab4,tab5,tab6,tab7,tab8,tab9,tab10 = st.tabs([
  "Vùng kinh tế", "Giới tính", "Nhóm tuổi","Học vấn","Nhóm ngành","Tỉnh/thành phố","Vị trí","Tỷ suất sinh", "Tỷ suất xuất cư","Tỷ suất nhập cư"
  ])
 with tab1:
- st.write('🌐Vùng kinh tế: chứa dữ liệu về tỷ lệ thất nghiệp và thiếu việc làm phân theo vùng và giới tính của mỗi vùng từ năm 2018 đến năm 2022')
+ st.write('🌐Vùng kinh tế: chứa dữ liệu về tỷ lệ thất nghiệp và thiếu việc làm phân theo vùng và giới tính từ năm 2018 đến năm 2022')
  profile_df = region_df.profile_report()
  st_profile_report(profile_df)
 with tab2:

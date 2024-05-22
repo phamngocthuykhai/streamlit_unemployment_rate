@@ -70,7 +70,7 @@ if choice =="Xu hướng":
 * Năm 2020-2021 là một năm bị ảnh hưởng nặng nề bởi đại dịch COVID-19, khiến nền kinh tế bị gián đoạn nghiêm trọng và buộc nhiều doanh nghiệp
                       phải thu hẹp quy mô hoặc tạm thời đóng cửa. Nhiều người lao động không bị mất việc hoàn toàn mà phải chấp nhận giảm giờ 
                      làm hoặc chuyển sang làm việc bán thời gian, khiến tình trạng thiếu việc làm gia tăng.
-* Mặc dù tỷ lệ thất nghiệp và thiếu việc làm vẫn cao hơn năm 2018 và 2019, nhưng sẽ có một số mức giảm vào năm 2022. Điều này có thể cho thấy
+* Năm 2022: Mặc dù tỷ lệ thất nghiệp và thiếu việc làm vẫn cao hơn năm 2018 và 2019, nhưng sẽ có một số mức giảm vào năm 2022. Điều này có thể cho thấy
                       các biện pháp phục hồi sau đại dịch và kích thích kinh tế đang bắt đầu phát huy tác dụng, dẫn đến ít áp lực lên thị 
                      trường lao động. Sự sụt giảm nhẹ vào năm 2022 cho thấy sự phục hồi dần dần, nhưng con số vẫn ở mức cao do ảnh hưởng kéo 
                      dài của đại dịch và các vấn đề tài chính đang diễn ra.""")
@@ -84,9 +84,9 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
     
     left_column, right_column = st.columns(2)
     with left_column:
-        un_gen = gender_df['Tỷ lệ thất nghiệp'].sum()
-        un_age = age_df['Tỷ lệ thất nghiệp'].sum()
-        un_education = education_df['Tỷ lệ thất nghiệp'].sum()
+        un_gen = gender_df['Tỷ lệ thất nghiệp'].mean()
+        un_age = age_df['Tỷ lệ thất nghiệp'].mean()
+        un_education = education_df['Tỷ lệ thất nghiệp'].mean()
         labels = ['Giới tính', 'Tuổi', 'Học vấn']
         sizes = [un_gen, un_age, un_education]
 
@@ -97,12 +97,37 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
         # Hiển thị biểu đồ trên Streamlit
         st.plotly_chart(fig)
         with st.expander("📝See note:"):
-             st.write("""Học vấn: Chiếm tỷ lệ cao nhất (48%) trong các yếu tố ảnh hưởng đến tình trạng thất nghiệp. Điều này cho thấy 
-                      trình độ học vấn đóng vai trò quan trọng trong việc tìm kiếm việc làm và tránh thất nghiệp. Tuổi: Chiếm tỷ lệ
-                       35,2% .Giới tính: Chiếm tỷ lệ 16,8%.\n\n Biểu đồ cho thấy tầm quan trọng của việc nâng cao trình độ học vấn. Biểu đồ cũng cho thấy cần có các chính sách hỗ trợ việc làm phù 
-                      hợp với từng nhóm đối tượng khác nhau như giới tính, độ tuổi, ... để giảm thiểu tỷ lệ thất nghiệp.""")
+             st.write("""Biểu đồ tròn cho thấy các yếu tố ảnh hưởng đế tình trạng thất nghiệp từ năm 2018 đến năm 2022: Yếu tố tuổi có tỷ lệ 
+                      ảnh hưởng lớn nhất đến tình trạng thất nghiệp, chiếm 39.4%. Tiếp theo là yếu tố học vấn, chiếm 32.3%, cho thấy tầm quan
+                       trọng của trình độ học vấn trong việc tìm kiếm việc làm. Giới tính là yếu tố ảnh hưởng ít nhất, chiếm 28.2%. Điều này
+                       chỉ ra rằng, để giảm tỷ lệ thất nghiệp, cần có các chính sách tập trung vào việc hỗ trợ các nhóm tuổi dễ bị thất 
+                      nghiệp, cải thiện trình độ học vấn và kỹ năng nghề nghiệp cho người lao động, và giảm thiểu sự phân biệt giới tính 
+                      trong quá trình tuyển dụng và việc làm.""")
 
 
+    with right_column:
+        #Trình độ học vấn ảnh hưởng đến tình trạng thất nghiệp
+        fig = px.line(education_df, x='Năm', y='Tỷ lệ thất nghiệp', color='Học vấn', labels={'Năm': 'Năm', 'Tỷ lệ thất nghiệp': 'Tỷ lệ'})
+        
+        fig.update_layout(title='Tình trạng thất nghiệp phân theo trình độ học vấn (2018-2022)',
+                        xaxis=dict(title='Năm'),
+                        yaxis=dict(title='Tỷ lệ (%)'),
+                        width=600, height=500)
+        # Hiển thị biểu đồ trên Streamlit
+        st.plotly_chart(fig)
+        with st.expander("📝See note:"):
+            st.write("""* Người có trình độ cao đẳng hoặc đại học thường cạnh tranh trong các ngành nghề yêu cầu trình độ cao hơn. 
+                     Điều này có thể dẫn đến một số người không thể tìm được việc làm phù hợp với trình độ học vấn của họ, dẫn đến 
+                     tỷ lệ thất nghiệp cao hơn trong nhóm này. Người có trình độ học vấn cao thường được trang bị với kỹ năng và 
+                     kiến thức chuyên môn cần thiết để làm việc trong các lĩnh vực chuyên môn. Tuy nhiên, nếu thị trường lao động 
+                     yêu cầu các kỹ năng đặc biệt hoặc không phản ánh đầy đủ nhu cầu thực tế của doanh nghiệp, một số người có trình 
+                     độ cao đẳng hoặc đại học có thể gặp khó khăn trong việc tìm kiếm việc làm phù hợp.\n
+* Một số ngành nghề, như lao động phổ thông trong nông nghiệp, xây dựng, dịch vụ, 
+                     và ngành công nghiệp nhẹ, thường có nhu cầu lao động lớn và đơn giản hóa quy trình tuyển dụng. 
+                     Các ngành nghề mà không yêu cầu trình độ học vấn cao thường có môi trường làm việc linh hoạt và ít yêu cầu về
+                      kỹ năng chuyên môn. Điều này có thể làm giảm áp lực tìm kiếm việc làm và tạo ra nhiều cơ hội việc làm hơn.""")
+
+    left_column, right_column = st.columns(2)
     with right_column:
         # giới tính ảnh hưởng đến tình trạng thất nghiệp
         fig = px.line(gender_df, x='Năm', y='Tỷ lệ thất nghiệp', color='Giới tính', labels={'Năm': 'Năm', 'Tỷ lệ thất nghiệp': 'Tỷ lệ'})
@@ -122,35 +147,15 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
                       phần thấp hơn nam giới có thể phản ánh sự hồi phục của một số ngành nghề và sự cân nhắc của chính sách trong việc hỗ 
                      trợ người lao động, bao gồm cả phụ nữ, sau đại dịch COVID-19.""")
 
-
-    left_column, right_column = st.columns(2)
-    with right_column:
-        #Trình độ học vấn ảnh hưởng đến tình trạng thất nghiệp
-        fig = px.line(education_df, x='Năm', y='Tỷ lệ thất nghiệp', color='Học vấn', labels={'Năm': 'Năm', 'Tỷ lệ thất nghiệp': 'Tỷ lệ'})
         
-        fig.update_layout(title='Tình trạng thất nghiệp phân theo trình độ học vấn (2018-2022)',
-                        xaxis=dict(title='Năm'),
-                        yaxis=dict(title='Tỷ lệ (%)'))
-        # Hiển thị biểu đồ trên Streamlit
-        st.plotly_chart(fig)
-        with st.expander("📝See note:"):
-            st.write("""* Người có trình độ cao đẳng hoặc đại học thường cạnh tranh trong các ngành nghề yêu cầu trình độ cao hơn. 
-                     Điều này có thể dẫn đến một số người không thể tìm được việc làm phù hợp với trình độ học vấn của họ, dẫn đến 
-                     tỷ lệ thất nghiệp cao hơn trong nhóm này. Người có trình độ học vấn cao thường được trang bị với kỹ năng và 
-                     kiến thức chuyên môn cần thiết để làm việc trong các lĩnh vực chuyên môn. Tuy nhiên, nếu thị trường lao động 
-                     yêu cầu các kỹ năng đặc biệt hoặc không phản ánh đầy đủ nhu cầu thực tế của doanh nghiệp, một số người có trình 
-                     độ cao đẳng hoặc đại học có thể gặp khó khăn trong việc tìm kiếm việc làm phù hợp.\n
-* Một số ngành nghề, như lao động phổ thông trong nông nghiệp, xây dựng, dịch vụ, 
-                     và ngành công nghiệp nhẹ, thường có nhu cầu lao động lớn và đơn giản hóa quy trình tuyển dụng. 
-                     Các ngành nghề mà không yêu cầu trình độ học vấn cao thường có môi trường làm việc linh hoạt và ít yêu cầu về
-                      kỹ năng chuyên môn. Điều này có thể làm giảm áp lực tìm kiếm việc làm và tạo ra nhiều cơ hội việc làm hơn.""")
 
     with left_column:
         fig = px.line(age_df, x='Năm', y='Tỷ lệ thất nghiệp', color='Nhóm tuổi', labels={'Năm': 'Năm', 'Tỷ lệ thất nghiệp': 'Tỷ lệ'})
         
         fig.update_layout(title='Tình trạng thất nghiệp phân theo nhóm tuổi (2018-2022)',
                         xaxis=dict(title='Năm'),
-                        yaxis=dict(title='Tỷ lệ (%)'))
+                        yaxis=dict(title='Tỷ lệ (%)'),
+                        width=500, height=500)
         # Hiển thị biểu đồ trên Streamlit
         st.plotly_chart(fig)
         with st.expander("📝See note:"):
@@ -268,20 +273,15 @@ hóa thường dẫn đến sự cạnh tranh tìm việc làm rất cao giữa 
     # Hiển thị biểu đồ trên Streamlit
     st.plotly_chart(fig)
     with st.expander("📝See note:"):
-        st.write("""Biểu đồ cho thấy tình trạng xuất nhập cư có ảnh hưởng đáng kể đến tỷ lệ thất nghiệp vì một số lý do sau:\n
-1. **Tỷ lệ thất nghiệp giảm có thể dẫn đến tình trạng di cư giảm:** Khi người dân dễ dàng tìm được việc làm ở địa phương, 
-                 họ ít có xu hướng di chuyển đến những nơi khác để tìm kiếm cơ hội việc làm tốt hơn. Điều này làm giảm áp lực 
-                 di cư và giữ cho nguồn lao động ổn định ở địa phương.
-2. **Tỷ lệ xuất cư giảm cũng có thể ảnh hưởng đến tỷ lệ thất nghiệp:** Khi người dân ít di cư ra khỏi một địa phương, 
-                 nguồn cung lao động ở đó sẽ tăng lên, dẫn đến tình trạng dư thừa lao động và có thể đẩy tỷ lệ thất nghiệp tăng lên. 
-                 Điều này thường xảy ra khi một khu vực đối diện với tình trạng thất nghiệp cao và người dân không có nhiều cơ hội để tìm kiếm việc làm ở nơi khác.\n
-**Tỷ lệ xuất cư cao có thể được giải thích bởi các yếu tố sau:**
-- **Thu nhập thấp:** Thu nhập bình quân đầu người ở Việt Nam vẫn thấp so với nhiều nước trong khu vực, khiến người dân tìm kiếm 
-                 cơ hội việc làm và thu nhập cao hơn ở các nước có mức sống cao hơn.
-- **Thiếu việc làm:** Tỷ lệ thất nghiệp ở Việt Nam, đặc biệt là ở khu vực nông thôn, vẫn cao. Điều này khiến nhiều người tìm kiếm
-                  việc làm ở các thành phố lớn hoặc các quốc gia khác.
-- **Điều kiện làm việc:** Một số ngành nghề ở Việt Nam có điều kiện làm việc khó khăn, vất vả và nguy hiểm, khiến người lao động
-                  tìm kiếm việc làm ở những nơi có điều kiện làm việc tốt hơn và an toàn hơn.""")
+        st.write("""Biểu đồ cho thấy tình trạng xuất nhập cư có ảnh hưởng đáng kể đến tỷ lệ thất nghiệp\n
+- **Tỷ suất xuất nhập cư cao:**
+    - Tăng cạnh tranh việc làm: Khi nhiều người ra nước ngoài tìm việc, nguồn cung lao động trong nước giảm, dẫn đến cạnh tranh gay gắt hơn giữa người lao động bản địa. Điều này có thể làm tăng tỷ lệ thất nghiệp do họ phải cạnh tranh với cả người nhập cư và lẫn nhau để xin việc.
+    - Thiếu hụt lao động: Xuất cư có thể gây thiếu hụt lao động trong một số ngành, đặc biệt là các ngành lương thấp hoặc đòi hỏi lao động chân tay. Các ngành như xây dựng, nông nghiệp, dịch vụ có thể gặp khó khăn trong việc tìm đủ nhân lực, dẫn đến tỷ lệ thất nghiệp cao trong những lĩnh vực này.
+- **Tỷ suất xuất nhập cư thấp:**
+    - Giảm cạnh tranh việc làm: Khi tỷ suất xuất nhập cư giảm, nguồn cung lao động trong nước tăng lên, giảm bớt áp lực cạnh tranh việc làm.
+                  Điều này có thể giúp giảm tỷ lệ thất nghiệp do người lao động có ít đối thủ hơn khi xin việc.
+    - Tăng nguồn cung lao động: Khi tỷ suất xuất nhập cư giảm, nguồn cung lao động trong nước tăng lên, giúp các ngành và khu vực có đủ nhân 
+                 lực đáp ứng nhu cầu.""")
 
 
 if choice =="Tình trạng thiếu việc làm":
@@ -289,10 +289,10 @@ if choice =="Tình trạng thiếu việc làm":
     st.title("**📊Dashboard các yếu tố ảnh hưởng đến tình trạng thiếu việc làm tại Việt Nam(2018-2022)**")
     st.info("""Cung cấp cái nhìn tổng quan, trực quan về xu hướng tình trạng thiếu việc làm trong giai đoạn 2018-2022.\n\n Giúp người 
             dùng dễ dàng theo dõi, so sánh các chỉ số về thất nghiệp theo thời gian, khu vực, ngành nghề, nhóm đối tượng,...""")
-    under_gen = gender_df['Tỷ lệ thiếu việc làm'].sum()
-    under_age = age_df['Tỷ lệ thiếu việc làm'].sum()
-    under_education = education_df['Tỷ lệ thiếu việc làm'].sum()
-    career = career_df['Tỷ lệ thiếu việc làm'].sum()
+    under_gen = gender_df['Tỷ lệ thiếu việc làm'].mean()
+    under_age = age_df['Tỷ lệ thiếu việc làm'].mean()
+    under_education = education_df['Tỷ lệ thiếu việc làm'].mean()
+    career = career_df['Tỷ lệ thiếu việc làm'].mean()
 
     labels = ['Học vấn', 'Tuổi', "Ngành nghề", 'Giới tính']
     sizes = [under_education, under_age, career,under_gen,]
@@ -308,15 +308,13 @@ if choice =="Tình trạng thiếu việc làm":
     # Hiển thị biểu đồ trên Streamlit
     st.plotly_chart(fig)
     with st.expander("📝See note:"):
-        st.write("""Biểu đồ hình tròn thể hiện tỷ lệ phần trăm các yếu tố ảnh hưởng đến tỷ lệ thiếu vệc làm tại Việt Nam. Trình độ học vấn có
-                  ảnh hưởng lớn hơn so với ngành nghề, độ tuổi và giới tính: đối với trình độ học vấn chiếm tỷ lệ cao nhất **(31,2%)**, cho thấy
-                  sự quan trọng của trình độ học vấn trong việc tìm kiếm và duy trì công việc. Trong khi đó, ngành nghề và giới tính có tỷ lệ 
-                 ảnh hưởng lớn hơn so với giới tính **(25,9% so với 16,3%)**. Điều này có thể thấy rằng sự lựa chọn ngành nghề và giới tính cũng 
-                 có vai trò quan trọng trong việc xác định khả năng tìm kiếm việc làm và ổn định nghề nghiệp của một người. Mặc dù tỷ lệ ảnh 
-                 hưởng của tuổi không phải là thấp nhất **(26,5%)**, nhưng nó vẫn thấp hơn so với học vấn và ngành nghề. Điều này có thể cho thấy 
-                 rằng trong một số trường hợp, người lao động có thể vượt qua sự ảnh hưởng của tuổi tác thông qua việc có trình độ học vấn 
-                 cao và lựa chọn ngành nghề phù hợp. Tỷ lệ ảnh hưởng của các yếu tố như học vấn, ngành nghề, giới tính và tuổi tác thể hiện 
-                 sự phức tạp và đa dạng của các nguyên nhân gây ra tình trạng thất nghiệp và thiếu việc làm.""")
+        st.write("""Biểu đồ hình tròn thể hiện tỷ lệ phần trăm các yếu tố ảnh hưởng đến tỷ lệ thiếu vệc làm tại Việt Nam. Biểu đồ này cho 
+                 thấy yếu tố tuổi có tỷ lệ ảnh hưởng lớn nhất đến tình trạng thiếu việc làm, chiếm 27.7%. Ngành nghề cũng có tác động đáng 
+                 kể, chiếm 27.1%. Giới tính ảnh hưởng đến tình trạng thiếu việc làm với tỷ lệ 25.6%. Học vấn là yếu tố ảnh hưởng ít nhất, 
+                 chiếm 19.6%, nhưng vẫn đóng vai trò quan trọng trong việc xác định cơ hội việc làm. Điều này cho thấy rằng các chính sách 
+                 giảm thiếu việc làm nên tập trung vào việc hỗ trợ các nhóm tuổi dễ bị thiếu việc làm, phát triển các ngành nghề đang thiếu
+                  hụt lao động, giảm thiểu sự phân biệt giới tính trong tuyển dụng, và nâng cao trình độ học vấn cũng như kỹ năng nghề nghiệp
+                  cho người lao động.""")
 
 
     left_column, right_column = st.columns(2)
@@ -367,9 +365,7 @@ if choice =="Tình trạng thiếu việc làm":
                      so với nhóm có trình độ sơ cấp. Họ có nhiều cơ hội nghề nghiệp hơn và sở hữu mạng lưới quan hệ rộng rãi, giúp  tiếp cận 
                      với nhiều vị trí công việc đa dạng và ổn định. Khả năng thích ứng với các biến động của thị trường lao động cũng cao hơn,
                       cho phép dễ dàng chuyển đổi hoặc thăng tiến trong sự nghiệp khi có thay đổi trong nền kinh tế.""")  
-      
-
-
+    
     left_column, right_column = st.columns(2)
     with left_column:
     # Biểu đồ đường "thiếu việc làm theo nhóm ngành"        
@@ -446,15 +442,14 @@ if choice =="Tình trạng thiếu việc làm":
 * **Đông Nam Bộ:** có tỷ lệ thiếu việc làm tương đối thấp do nền kinh tế phát triển mạnh mẽ. Nền  kinh tế khu vực này có tốc độ phát triển nhanh chóng, đặc 
                  biệt là trong các ngành công nghiệp và dịch vụ. Nhờ thu hút  được nhiều nguồn vốn đầu tư trong và ngoài nước, khu vực này đã tạo 
                  ra nhiều cơ hội việc làm cho người lao động.
-* **Tây Nguyên:** có tỷ lệ thiếu việc làm tương đối thấp nhưng trong năm 2021 có 
-                 tỷ lệ cao thứ 2 so với các vùng còn lại.  Nền kinh tế chủ yếu dựa vào nông nghiệp và lâm nghiệp, với năng suất lao động thấp do 
-                 điều kiện tự nhiên khó khăn. Mùa vụ không đồng đều cũng dẫn đến tình trạng thiếu việc làm vào một số thời điểm trong năm. Bên cạnh 
-                 đó, khu vực này cũng chịu ảnhhưởng nặng nề bởi biến đổi khí hậu, hạn hán,...
+* **Tây Nguyên:** có tỷ lệ thiếu việc làm ở mức trung bình nhưng trong năm 2021 có tỷ lệ cao thứ 2 so với các vùng còn lại. Nền kinh tế chủ 
+                 yếu dựa vào nông nghiệp và lâm nghiệp, với năng suất lao động thấp do điều kiện tự nhiên khó khăn. Mùa vụ không đồng đều
+                  cũng dẫn đến tình trạng thiếu việc làm vào một số thời điểm trong năm. Bên cạnh đó, khu vực này cũng chịu ảnh hưởng nặng
+                 nề bởi biến đổi khí hậu, hạn hán,...
 * **Bắc Trung Bộ và duyên hải miền Trung:** có tỷ lệ thiếu việc làm ở mức trung bình do nền kinh tế phát triển đa dạng nhưng năng suất lao động 
                  nhìn chung vẫn thấp hơn so với các khu vực khác. Thiên tai, bão lũ cũng là những yếu tố ảnh hưởng đến thị trường lao động ở khu vực này.
 * **Trung du và miền núi phía Bắc:** có tỷ lệ thiếu việc làm ở mức trung bình do nền kinh tế chủ yếu dựa vào nông nghiệp và lâm nghiệp, năng suất lao động 
                  thấp và mức độ phát triển kinh tế - xã hội thấp.""")
-
 
     # Tạo biểu đồ thanh theo dõi tỷ lệ nhập cư của theo năm 
     trace_immigration = go.Bar(x=immigration_df.groupby('Năm')['Tỷ suất nhập cư'].mean().index,
@@ -490,9 +485,9 @@ if choice =="Tình trạng thiếu việc làm":
 if choice =="Bản đồ":
     st.sidebar.image("streamlit_report/pic/gif_gunner.gif", use_column_width=True)
     st.title("🗺 Bản đồ thể hiện tình trạng thất nghiệp và thiếu việc làm theo địa phương")
-    st.info("""Biểu đồ heatmap thể thể hiện tình trạng thất nghiệp/ thiếu việc làm ở các khu vực khác nhau của Việt Nam trên bản đồ.\n\n Các 
+    st.info("""Biểu đồ heatmap thể thể hiện tình trạng thất nghiệp hoặc thiếu việc làm ở các khu vực khác nhau của Việt Nam trên bản đồ.\n\n Các 
             màu sắc khác nhau có thể biểu thị mức độ của tỷ lệ thất nghiệp và thiếu liệc làm, giúp phát hiện ra các khu vực có mức độ thất 
-            nghiệp cao hơn so với các khu vực khác.""")
+            nghiệp hoặc thiếu việc làm cao hơn so với các khu vực khác. Màu càng đậm thể hiện tỷ lệ càng cao.""")
     
     #Tạo tab
     unemployment = 'Tình trạng thất nghiệp'
@@ -696,13 +691,13 @@ if choice =="Bản đồ":
                         st.write("""* **Đắk Lắk** là một trong những tỉnh có nền kinh tế nông nghiệp phát triển, nhưng ngành này thường gặp phải 
                                  những thách thức như sự thiếu hụt vốn đầu tư, công nghệ lạc hậu và khí hậu không ổn định. Ngoài ra, sự chuyển 
                                  dịch từ nông nghiệp sang công nghiệp thường chậm trễ, dẫn đến sự phụ thuộc lớn vào lao động nông thôn và một 
-                                 tỷ lệ thất nghiệp cao.
+                                 tỷ lệ thiếu việc làm cao.
 * **Đồng Bằng sônng Cửu Long** là một trong những vùng đất có mật độ 
                                  dân số cao nhất ở Việt Nam. Sự gia tăng dân số, đặc biệt là ở các thành phố và thị trấn lớn, có thể tạo ra áp lực 
                                  lớn cho thị trường lao động và gây ra tình trạng thiếu việc làm. Đồng Bằng sông Cửu Long chủ yếu làm việc trong 
                                  ngành nông nghiệp, nhưng sự phát triển của ngành công nghiệp và dịch vụ ở khu vực này không đồng đều,gây ra sự 
                                  không ổn định trong nền kinh tế và việc làm.
-    Trong đó có 2 tỉnh/thành phố có tỷ lệ thất nghiệp cao nhất nước, đó là:
+    Trong đó có 2 tỉnh/thành phố có tỷ lệ thiếu việc làm cao nhất Đồng Bằng sônng Cửu Long, đó là:
     * **Vĩnh Long** là một tỉnh nằm trong khu vực Đồng bằng sông Cửu Long, nền kinh tế chủ yếu là nông nghiệp và các ngành công nghiệp như chế biến 
                                  thực phẩm, dệt may và xây dựng. Nếu có sự suy giảm trong các ngành này hoặc nhu cầu lao động không đủ để đáp ứng, 
                                  tỷ lệ thiếu việc làm có thể tăng lên.
