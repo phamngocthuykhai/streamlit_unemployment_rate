@@ -35,45 +35,29 @@ dataframes = [region_df, age_df, career_df, education_df, gender_df, location_df
 
 row_counts = {}
 unemployment_row_counts = {}
-unemployment_col_counts={}
 underemployment_row_counts = {}
+total_unemployment_row_count = 0
+total_underemployment_row_count = 0
 total_row_count = 0
-total_unemployment_count = 0
-total_underemployment_count = 0
+
 
 # Lặp qua từng DataFrame và đếm số lượng dòng dữ liệu cũng như dòng dữ liệu có cột 'Tỷ lệ thất nghiệp' và 'Tỷ lệ thiếu việc làm'
 for df_name, df in zip(["region_df", "age_df", "career_df",
                          "education_df", "gender_df", "location_df", 
                          "birth_df", "migration_df", "immigration_df"], dataframes):
     
-    num_rows = df.shape[0]
-    # Số cột của dataframe
-    num_columns = df.shape[1]
-    # Tổng số dòng nhân với tổng số cột
-    row_counts[df_name] = num_rows * num_columns
-
-    # Tổng số dòng nhân với tổng số cột của tất cả các dataframe
-    total_rows_columns = sum(row_counts.values())
+    row_counts[df_name] = df.shape[0]
+    total_row_count += df.shape[0]
 
  
     if 'Tỷ lệ thất nghiệp' in df.columns:
-        num_rows = df[df['Tỷ lệ thất nghiệp'].notnull()].shape[0]
-        # Số cột của dataframe
-        num_columns = df.shape[1]
-        # Tổng số dòng nhân với tổng số cột
-        unemployment_row_counts[df_name] = num_rows * num_columns
-        # Cập nhật tổng số dòng nhân với tổng số cột
-        total_unemployment_count += num_rows * num_columns
+        unemployment_row_counts[df_name] = df[df['Tỷ lệ thất nghiệp'].notnull()].shape[0]
+        total_unemployment_row_count += unemployment_row_counts[df_name]
     else:
         unemployment_row_counts[df_name] = 0
     if 'Tỷ lệ thiếu việc làm' in df.columns:
-        num_rows= df[df['Tỷ lệ thiếu việc làm'].notnull()].shape[0]
-        # Số cột của dataframe
-        num_columns = df.shape[1]
-        # Tổng số dòng nhân với tổng số cột
-        underemployment_row_counts[df_name] = num_rows * num_columns
-        # Cập nhật tổng số dòng nhân với tổng số cột
-        total_underemployment_count += num_rows * num_columns
+        underemployment_row_counts[df_name] = df[df['Tỷ lệ thiếu việc làm'].notnull()].shape[0]
+        total_underemployment_row_count += underemployment_row_counts[df_name]
 
     else:
         underemployment_row_counts[df_name] = 0
@@ -96,9 +80,9 @@ for df_name_under_province, df_under_province in zip(["under_2018_df","under_201
     total_row_counts_under_province += df_under_province.shape[0]
 
 
-total= total_row_counts_under_province+total_row_counts_un_province+total_rows_columns
-total_unemployment=total_row_counts_un_province+total_unemployment_count
-total_underemployment=total_row_counts_under_province+total_underemployment_count
+total= total_row_counts_under_province+total_row_counts_un_province+total_row_count
+total_unemployment=total_row_counts_un_province+total_unemployment_row_count
+total_underemployment=total_row_counts_under_province+total_underemployment_row_count
 
 left_column, middle_column, right_column = st.columns(3)
 
