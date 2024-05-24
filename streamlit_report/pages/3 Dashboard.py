@@ -191,16 +191,19 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
     st.plotly_chart(fig)
     with st.expander("📝See note:"):
         st.write("""Tỷ suất sinh= ( Tổng số sinh trong thời kỳ nghiên cứu/ Dân số trung bình)*1000
-* Biểu đồ chỉ ra mối tương quan nghịch, nghĩa là khi tỷ lệ thất nghiệp của phụ nữ tăng thì tỷ lệ sinh sẽ giảm.
-                  Điều này có thể là do một số yếu tố, chẳng hạn như sự bất an về kinh tế, có thể khiến các cặp vợ chồng trì hoãn 
-                 hoặc từ bỏ việc sinh con. Các vấn đề:
-    * **Bất an kinh tế:** Khi phụ nữ thất nghiệp, họ có thể cảm thấy kém an toàn hơn về mặt tài chính và có nhiều 
-                 khả năng trì hoãn hoặc từ bỏ việc sinh con.
-    * **Cân bằng giữa công việc và cuộc sống:** Cân bằng giữa công việc và cuộc sống gia đình có thể là một thách thức 
-                 và phụ nữ thất nghiệp có thể có nhiều thời gian hơn để chăm sóc con cái. Tuy nhiên, họ cũng có thể phải đối mặt với 
-                 những thách thức trong việc tìm kiếm người chăm sóc trẻ khi tái gia nhập lực lượng lao động.
-    * **Khát vọng về học vấn và nghề nghiệp:** Phụ nữ có trình độ học vấn và nguyện vọng nghề nghiệp cao hơn 
-                 có thể có nhiều khả năng trì hoãn việc sinh con cho đến khi họ đã ổn định được sự nghiệp của mình.""")
+* Tỷ suất sinh là một yếu tố quan trọng ảnh hưởng đến tỷ lệ thất nghiệp đối với phụ nữ. Khi tỷ suất sinh tăng, tỷ lệ thất nghiệp trong nhóm 
+                 phụ nữ cũng có xu hướng tăng lên. Do gặp các vấn đề ảnh hưởng như:
+    * Thời gian nghỉ sinh: Phụ nữ thường phải nghỉ làm trong một khoảng thời gian dài để sinh con và chăm sóc trẻ sơ sinh. Khoảng thời gian này 
+                 có thể làm gián đoạn sự nghiệp và ảnh hưởng đến khả năng duy trì việc làm của họ.
+
+    * Khó khăn khi quay lại thị trường lao động: Sau khi nghỉ sinh, nhiều phụ nữ gặp khó khăn trong việc quay lại thị trường lao động. Các 
+                 yếu tố như thay đổi trong kỹ năng yêu cầu của công việc, mất đi mối liên hệ với đồng nghiệp và sự thay đổi trong cơ cấu tổ chức của doanh nghiệp có thể khiến họ gặp khó khăn trong việc tái hòa nhập.
+
+    * Gánh nặng gia đình: Sau khi sinh con, phụ nữ thường phải đảm nhiệm vai trò chăm sóc con cái, điều này có thể hạn chế thời gian và năng 
+                 lượng họ có thể dành cho công việc. Sự cân bằng giữa công việc và gia đình trở nên khó khăn, ảnh hưởng đến khả năng tham gia và duy trì việc làm của họ.
+
+    * Chính sách hỗ trợ chưa đầy đủ: Thiếu các chính sách hỗ trợ như bảo hiểm thai sản, nghỉ phép có lương, và dịch vụ chăm sóc trẻ em chất 
+                 lượng có thể khiến nhiều phụ nữ khó khăn trong việc duy trì sự nghiệp sau khi sinh con.""")
 
 
     traces = []
