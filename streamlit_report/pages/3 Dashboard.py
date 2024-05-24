@@ -94,7 +94,7 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
         fig = go.Figure(data=[go.Pie(labels=labels, values=sizes, textinfo='percent')])
         fig.update_layout(title='Các yếu tố ảnh hưởng đến tình trạng thất nghiệp',
                           width=500, height=500)
-        # Hiển thị biểu đồ trên Streamlit
+        # Show
         st.plotly_chart(fig)
         with st.expander("📝See note:"):
              st.write("""Biểu đồ tròn cho thấy các yếu tố ảnh hưởng đế tình trạng thất nghiệp từ năm 2018 đến năm 2022: Yếu tố tuổi có tỷ lệ 
@@ -113,7 +113,7 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
                         xaxis=dict(title='Năm'),
                         yaxis=dict(title='Tỷ lệ (%)'),
                         width=600, height=500)
-        # Hiển thị biểu đồ trên Streamlit
+        # Show
         st.plotly_chart(fig)
         with st.expander("📝See note:"):
             st.write("""* Người có trình độ cao đẳng hoặc đại học thường cạnh tranh trong các ngành nghề yêu cầu trình độ cao hơn. 
@@ -136,7 +136,7 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
                         xaxis=dict(title='Năm'),
                         yaxis=dict(title='Tỷ lệ (%)'),
                         width=600, height=500)
-        # Hiển thị biểu đồ trên Streamlit
+        # Show
         st.plotly_chart(fig)
         with st.expander("📝See note:"):
             st.write("""Đối với biểu đồ **“Tình trạng thất nghiệp phân theo giới tính”**, ta nhìn thấy được một số phụ nữ vẫn gặp phải sự phân 
@@ -156,7 +156,7 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
                         xaxis=dict(title='Năm'),
                         yaxis=dict(title='Tỷ lệ (%)'),
                         width=500, height=500)
-        # Hiển thị biểu đồ trên Streamlit
+        # Show
         st.plotly_chart(fig)
         with st.expander("📝See note:"):
              st.write("""* Nhóm tuổi từ 15 đến 24 tuổi: Đây thường là nhóm tuổi của các bạn trẻ mới tốt nghiệp trung học phổ thông hoặc 
@@ -185,9 +185,9 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
                     xaxis=dict(title='Năm'),
                     yaxis=dict(title='Tỷ lệ (%)'),
                     width=800, height=500)
-    # Kết hợp
+    # Combine
     fig = go.Figure(data=[trace_birth_rate, trace_unemployment_female], layout=layout)
-    # Hiển thị biểu đồ trên Streamlit
+    # Show
     st.plotly_chart(fig)
     with st.expander("📝See note:"):
         st.write("""Tỷ suất sinh= ( Tổng số sinh trong thời kỳ nghiên cứu/ Dân số trung bình)*1000
@@ -226,7 +226,7 @@ Giúp người dùng dễ dàng theo dõi, so sánh các chỉ số về thất 
         title='Tình trạng thất nghiệp theo phân theo vùng',
         xaxis=dict(title='Vùng'),
         yaxis=dict(title='Tỷ lệ(%)'),width=1100, height=500)
-    # Hiển thị biểu đồ trên Streamlit 
+    # Show 
     st.plotly_chart(fig)
     with st.expander("📝 See note:"):
         st.write("""- **Vùng trung du và miền núi phía bắc:**           
@@ -270,7 +270,7 @@ hóa thường dẫn đến sự cạnh tranh tìm việc làm rất cao giữa 
                     width=1000, height=600)
     # Combine
     fig = go.Figure(data=[trace_combined_region,trace_dt_immigration,trace_dt_migration], layout=layout)
-    # Hiển thị biểu đồ trên Streamlit
+    # Show
     st.plotly_chart(fig)
     with st.expander("📝See note:"):
         st.write("""Biểu đồ cho thấy tình trạng xuất nhập cư có ảnh hưởng đáng kể đến tỷ lệ thất nghiệp\n
@@ -305,7 +305,7 @@ if choice =="Tình trạng thiếu việc làm":
                         width=1000, height=500)
     # Combine
     fig = go.Figure(data=[trace_pie], layout=layout)
-    # Hiển thị biểu đồ trên Streamlit
+    # Show
     st.plotly_chart(fig)
     with st.expander("📝See note:"):
         st.write("""Biểu đồ hình tròn thể hiện tỷ lệ phần trăm các yếu tố ảnh hưởng đến tỷ lệ thiếu vệc làm tại Việt Nam. Biểu đồ này cho 
@@ -325,7 +325,7 @@ if choice =="Tình trạng thiếu việc làm":
                           yaxis=dict(title='Tỷ lệ(%)'),
                           xaxis=dict(title='Năm'),
                           width=500, height=500)
-        # Hiển thị biểu đồ trên Streamlit
+        # Show
         st.plotly_chart(fig)
         with st.expander("📝See note:"):
             st.write("""Tuổi tác được coi là một yếu tố quan trọng ảnh hưởng đến tỷ lệ thiếu việc làm vì nó ảnh hưởng đến nhiều khía cạnh 
@@ -353,7 +353,7 @@ if choice =="Tình trạng thiếu việc làm":
                           yaxis=dict(title='Tỷ lệ(%)'),
                           xaxis=dict(title='Năm'),
                           width=600, height=500)
-        # Hiển thị biểu đồ trên Streamlit
+        # Show
         st.plotly_chart(fig)
         with st.expander("📝See note:"):
             st.write("""* Nhóm có trình độ học vấn sơ cấp và không có trình độ chuyên môn kỹ thuật có tỷ lệ thiếu việc làm cao xuất phát từ việc thiếu hụt kỹ năng 
@@ -375,7 +375,7 @@ if choice =="Tình trạng thiếu việc làm":
                           yaxis=dict(title='Tỷ lệ(%)'),
                           xaxis=dict(title='Năm'),
                           width=500, height=500)
-        # Hiển thị biểu đồ trên Streamlit
+        # Show
         st.plotly_chart(fig)
         with st.expander("📝See note:"):
             st.write("""Trong một số ngành nghề, như xây dựng, sản xuất, và ngành công nghiệp, thường có sự ưu tiên tuyển dụng nam 
@@ -391,7 +391,7 @@ if choice =="Tình trạng thiếu việc làm":
                           yaxis=dict(title='Tỷ lệ(%)'),
                           xaxis=dict(title='Năm'),
                           width=600, height=500)
-        # Hiển thị biểu đồ trên Streamlit
+        # Show
         st.plotly_chart(fig)
         with st.expander("📝See note:"):
             st.write("""Yếu tố ngành nghề có thể ảnh hưởng đến tỷ lệ thiếu việc làm do sự biến động trong cơ hội việc làm và thu nhập 
@@ -431,7 +431,7 @@ if choice =="Tình trạng thiếu việc làm":
         xaxis=dict(title='Vùng'),
         yaxis=dict(title='Tỷ lệ(%)'),
         barmode='group',width=1000, height=600)
-    # Hiển thị biểu đồ trên Streamlit
+    # Show
     st.plotly_chart(fig)
     with st.expander("📝See note:"):
         st.write("""* **Đồng bằng sông Hồng:** có tỷ lệ thiếu việc làm thấp nhất do nền kinh tế phát triển đa dạng, nhu cầu lao động cao trong 
@@ -470,7 +470,7 @@ if choice =="Tình trạng thiếu việc làm":
     # Combine 
     fig = go.Figure(data=[ trace_combined_region,trace_immigration,trace_migration], layout=layout)
 
-    # Hiển thị biểu đồ trên Streamlit
+    # Show
     st.plotly_chart(fig)
 
     with st.expander("📝See note:"):
@@ -575,8 +575,6 @@ if choice =="Bản đồ":
 
                 if choice=="Thành thị":
                     combined_un_province_df['avg_tt'] = combined_un_province_df[['TT_2018','TT_2019', 'TT_2020', 'TT_2021', 'TT_2022']].mean(axis=1)
-                    # Chuyển đổi kiểu dữ liệu của cột 'avg' thành float64
-                    combined_un_province_df['avg_tt'] = combined_un_province_df['avg_tt'].astype('float64')
                     combined_un_df = pd.merge(location_df, combined_un_province_df, on='Tỉnh')
                     # Tạo dữ liệu heatmap từ combined_un_df
                     heatmap_data = combined_un_df[['Vĩ độ', 'Kinh độ', 'avg_tt']].values.tolist()
@@ -592,8 +590,6 @@ if choice =="Bản đồ":
 
                 if choice=="Nông thôn":
                     combined_un_province_df['avg_nt'] = combined_un_province_df[['NT_2018','NT_2019', 'NT_2020', 'NT_2021', 'NT_2022']].mean(axis=1)
-                    # Chuyển đổi kiểu dữ liệu của cột 'avg' thành float64
-                    combined_un_province_df['avg_nt'] = combined_un_province_df['avg_nt'].astype('float64')
                     combined_un_df = pd.merge(location_df, combined_un_province_df, on='Tỉnh')
                     # Tạo dữ liệu heatmap từ combined_un_df
                     heatmap_data = combined_un_df[['Vĩ độ', 'Kinh độ', 'avg_nt']].values.tolist()
@@ -675,8 +671,7 @@ if choice =="Bản đồ":
                 if choice=="Chung":
                     # Tính trung bình của mỗi tỉnh
                     combined_under_province_df['avg_province'] = combined_under_province_df[['Chung_2018','Chung_2019', 'Chung_2020', 'Chung_2021', 'Chung_2022']].mean(axis=1)
-                    # Chuyển đổi kiểu dữ liệu của cột 'avg' thành float64
-                    combined_under_province_df['avg_province'] = combined_under_province_df['avg_province'].astype('float64')
+
                     # Kết hợp với DataFrame location_df
                     combined_under_df = pd.merge(location_df, combined_under_province_df, on='Tỉnh')
 
@@ -706,8 +701,6 @@ if choice =="Bản đồ":
 
                 if choice=="Thành thị":
                     combined_under_province_df['avg_tt'] = combined_under_province_df[['TT_2018','TT_2019', 'TT_2020', 'TT_2021', 'TT_2022']].mean(axis=1)
-                    # Chuyển đổi kiểu dữ liệu của cột 'avg' thành float64
-                    combined_under_province_df['avg_tt'] = combined_under_province_df['avg_tt'].astype('float64')
                     combined_under_df = pd.merge(location_df, combined_under_province_df, on='Tỉnh')
                     # Tạo dữ liệu heatmap từ combined_under_df
                     heatmap_data = combined_under_df[['Vĩ độ', 'Kinh độ', 'avg_tt']].values.tolist()
@@ -725,8 +718,6 @@ if choice =="Bản đồ":
 
                 if choice=="Nông thôn":
                     combined_under_province_df['avg_nt'] = combined_under_province_df[['NT_2018','NT_2019', 'NT_2020', 'NT_2021', 'NT_2022']].mean(axis=1)
-                    # Chuyển đổi kiểu dữ liệu của cột 'avg' thành float64
-                    combined_under_province_df['avg_nt'] = combined_under_province_df['avg_nt'].astype('float64')
 
                     combined_under_df = pd.merge(location_df, combined_under_province_df, on='Tỉnh')
 

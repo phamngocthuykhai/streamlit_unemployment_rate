@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-st.set_page_config(page_title='Home',page_icon=":👥:",layout='wide')
+st.set_page_config(page_title='Home',page_icon=":👥:",layout='wide',base="light" )
 st.title("Phân tích dữ liệu về tình trạng thất nghiệp và thiếu việc làm trong độ tuổi lao động tại Việt Nam từ năm 2018 đến năm 2022")
 st.write("""Trong giai đoạn từ năm 2018 đến năm 2022, tình trạng thất nghiệp và thiếu việc làm tại Việt Nam đã trải qua nhiều biến động đáng 
          kể, đặc biệt dưới sự ảnh hưởng của đại dịch Covid-19. Từ một nền kinh tế tăng trưởng mạnh mẽ với tỷ lệ thất nghiệp thấp vào năm 2018 
